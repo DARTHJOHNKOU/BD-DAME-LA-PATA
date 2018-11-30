@@ -1,4 +1,16 @@
-﻿using System;
+﻿/**********************************
+*Asignación de programa: 04
+*Nombre: Carlos Salazar Martínez 
+*Fecha de creación: 29/11/18
+* 
+*Descripción: Clase que contiene la conexión a la
+* base de datos para usar los Stored Procedures
+* de registrar, modificar y visualizar datos de               
+* perros.              
+**********************************/
+
+
+using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Collections.Generic;
@@ -18,7 +30,7 @@ namespace InterfazDeUsuario
         public bool RegistroPerro(string Empleo)
         {
             SqlCommand comando = new SqlCommand("", Link.LinkConexion);
-            comando.CommandText = "SP_JobInsert";
+            comando.CommandText = "SP_InsertPerro";
             comando.CommandType = CommandType.StoredProcedure;
             comando.Parameters.AddWithValue("@Empleo", Empleo);
 

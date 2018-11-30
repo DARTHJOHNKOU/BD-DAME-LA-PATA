@@ -1,4 +1,14 @@
-﻿using System;
+﻿/**********************************
+*Asignación de programa: 05
+*Nombre: Carlos Salazar Martínez 
+*Fecha de creación: 29/11/18
+* 
+*Descripción: Clase que contiene la funcionalidad
+* de la interfaz gráfica del menú principal.
+**********************************/
+
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,10 +24,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace InterfazDeUsuario
-{
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
+{    
     public partial class MainWindow : Window
     {
         //Objeto de la clase Perro para llamar las funciones de registro y actualización de datos.
@@ -25,24 +32,15 @@ namespace InterfazDeUsuario
 
         public MainWindow()
         {
+            //Inicialización de los componentes de la UI
             InitializeComponent();
 
+            //Botón que manda al menú de Administración de datos de perros
             BtnIrAAdministracionPerros.Click += (s, e) =>
             {
-                //MessageBox.Show("El boton responde correctamente");
-
                 WindowMenuPerro Ventana = new WindowMenuPerro();
                 this.Close();
                 Ventana.Show();
-
-                //¿Se mandaron los datos a la BD con éxito?
-                //if (Operaciones.RegistroPerro(txt.Text) == true)
-                //{
-                //    MessageBox.Show("Los datos fueron guardados correctamente");
-                //}
-                //else
-                //    MessageBox.Show("Hubo un error. Verifique que los datos estén correctos.");
-
             };
         }
     }
