@@ -1,0 +1,72 @@
+﻿<Window x:Class="InterfazDeUsuario.WindowRegistroPerro"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InterfazDeUsuario"
+        mc:Ignorable="d"
+        Title="WindowRegistroPerro" Height="450" Width="800">
+    <Grid>
+        <Grid Margin="296,84,65,0" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="Nombre:"
+                       Grid.Column="1" Grid.Row="0"/>
+
+            <TextBox x:Name="TxtNombre"
+                     Grid.Column="2" Grid.Row="0"/>
+
+
+            <TextBlock Text="Edad:"
+                       Grid.Column="1" Grid.Row="1"/>
+
+            <TextBox x:Name="TxtEdad"
+                     Grid.Column="2" Grid.Row="1"/>
+
+
+            <TextBlock Text="Raza:"
+                       Grid.Column="1" Grid.Row="2"/>
+
+            <TextBox x:Name="TxtRaza"
+                     Grid.Column="2" Grid.Row="2"/>
+
+
+            <TextBlock Text="Fecha de ingreso al refugio:"
+                       Grid.Column="1" Grid.Row="3"/>
+
+            <TextBox x:Name="TxtFechaIngreso"
+                     Grid.Column="2" Grid.Row="3"/>
+
+
+            <TextBlock Text="Tamaño del perro:"
+                       Grid.Column="1" Grid.Row="4"/>
+
+            <TextBox x:Name="TxtTamano"
+                     Grid.Column="2" Grid.Row="4"/>
+
+
+            <TextBlock Text="¿Está esterilizado? :"
+                       Grid.Column="1" Grid.Row="5"/>
+
+            <TextBox x:Name="TxtEsterilizado"
+                     Grid.Column="2" Grid.Row="5"/>
+
+
+        </Grid>
+        <Button x:Name="BtnRegresar" Content="Regresar" HorizontalAlignment="Left" Margin="141,148,0,0" VerticalAlignment="Top" Width="75"/>
+
+    </Grid>
+</Window>
