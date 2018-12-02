@@ -36,3 +36,11 @@ F:\Documentos\universidad\Semestre 8\Desarrollo de Software\Git_Proyecto\BD-DAME
 F:\Documentos\universidad\Semestre 8\Desarrollo de Software\Git_Proyecto\BD-DAME-LA-PATA\AdopcionesDameLaPata\InterfazDeUsuario\obj\Debug\InterfazDeUsuario.csproj.CoreCompileInputs.cache
 F:\Documentos\universidad\Semestre 8\Desarrollo de Software\Git_Proyecto\BD-DAME-LA-PATA\AdopcionesDameLaPata\InterfazDeUsuario\obj\Debug\InterfazDeUsuario.exe
 F:\Documentos\universidad\Semestre 8\Desarrollo de Software\Git_Proyecto\BD-DAME-LA-PATA\AdopcionesDameLaPata\InterfazDeUsuario\obj\Debug\InterfazDeUsuario.pdb
+F:\Documentos\universidad\Semestre 8\Desarrollo de Software\Git_Proyecto\BD-DAME-LA-PATA\AdopcionesDameLaPata\InterfazDeUsuario\obj\Debug\WindowMenuAdopcion.g.cs
+F:\Documentos\universidad\Semestre 8\Desarrollo de Software\Git_Proyecto\BD-DAME-LA-PATA\AdopcionesDameLaPata\InterfazDeUsuario\obj\Debug\WindowMenuAdoptante.g.cs
+F:\Documentos\universidad\Semestre 8\Desarrollo de Software\Git_Proyecto\BD-DAME-LA-PATA\AdopcionesDameLaPata\InterfazDeUsuario\obj\Debug\WindowMenuVisita.g.cs
+F:\Documentos\universidad\Semestre 8\Desarrollo de Software\Git_Proyecto\BD-DAME-LA-PATA\AdopcionesDameLaPata\InterfazDeUsuario\obj\Debug\WindowRegistroVisita.g.cs
+F:\Documentos\universidad\Semestre 8\Desarrollo de Software\Git_Proyecto\BD-DAME-LA-PATA\AdopcionesDameLaPata\InterfazDeUsuario\obj\Debug\WindowMenuAdopcion.baml
+F:\Documentos\universidad\Semestre 8\Desarrollo de Software\Git_Proyecto\BD-DAME-LA-PATA\AdopcionesDameLaPata\InterfazDeUsuario\obj\Debug\WindowMenuAdoptante.baml
+F:\Documentos\universidad\Semestre 8\Desarrollo de Software\Git_Proyecto\BD-DAME-LA-PATA\AdopcionesDameLaPata\InterfazDeUsuario\obj\Debug\WindowMenuVisita.baml
+F:\Documentos\universidad\Semestre 8\Desarrollo de Software\Git_Proyecto\BD-DAME-LA-PATA\AdopcionesDameLaPata\InterfazDeUsuario\obj\Debug\WindowRegistroVisita.baml

@@ -5,8 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InterfazDeUsuario"
         mc:Ignorable="d"
-        Title="Menú principal" Height="450" Width="800">
+        Title="Menú principal" Height="430" Width="800">
     <Grid>
+
+        <!--<Image Source="F:\Imagenes\DLP_Fondo.png"  />-->
+
         <Grid Margin="71,36,65,0" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -20,11 +23,23 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <Button x:Name="BtnIrAAdministracionPerros" Content="Administracion de información de Perros"
-                    Grid.Column="1" Grid.Row="0" Margin="0,2,0,93" Grid.RowSpan="2"></Button>
-            
+            <Button x:Name="BtnIrAAdministracionPerros" Content="Registro de un perro"
+                    Grid.Column="1" Grid.Row="0" 
+                    ToolTip="Ir al menu de operaciones: ver, registrar y modificar infomación de los perros"></Button>
+
             <Button x:Name="BtnIrAAdministracionAdoptantes" Content="Administracion de información de Adoptantes"
-                    Grid.Column="1" Grid.Row="1" Margin="0,2,0,93" Grid.RowSpan="2"></Button>
+                    Grid.Column="1" Grid.Row="1" 
+                    ToolTip="Ir al menu de operaciones: ver, registrar y modificar infomación de los adoptantes"></Button>
+
+            <Button x:Name="BtnIrAAdministracionAdopciones" Content="Administracion de información de Adopciones"
+                    Grid.Column="1" Grid.Row="2"
+                    ToolTip="Ir al menu de operaciones: ver, registrar y modificar infomación de las adopciones"></Button>
+
+            <Button x:Name="BtnIrAAdministracionVisitas" Content="Registro de una visita"
+                    Grid.Column="1" Grid.Row="3"  
+                    ToolTip="Ir al menu de operaciones: ver, registrar y modificar infomación de las visitas"></Button>
+
+
         </Grid>
 
     </Grid>

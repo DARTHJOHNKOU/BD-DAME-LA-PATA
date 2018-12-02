@@ -54,11 +54,23 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="WindowMenuAdopcion.xaml.cs">
+      <DependentUpon>WindowMenuAdopcion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WindowMenuAdoptante.xaml.cs">
+      <DependentUpon>WindowMenuAdoptante.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WindowMenuPerro.xaml.cs">
       <DependentUpon>WindowMenuPerro.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WindowMenuVisita.xaml.cs">
+      <DependentUpon>WindowMenuVisita.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WindowRegistroPerro.xaml.cs">
       <DependentUpon>WindowRegistroPerro.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WindowRegistroVisita.xaml.cs">
+      <DependentUpon>WindowRegistroVisita.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -74,11 +86,27 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="WindowMenuAdopcion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowMenuAdoptante.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="WindowMenuPerro.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="WindowMenuVisita.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="WindowRegistroPerro.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowRegistroVisita.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

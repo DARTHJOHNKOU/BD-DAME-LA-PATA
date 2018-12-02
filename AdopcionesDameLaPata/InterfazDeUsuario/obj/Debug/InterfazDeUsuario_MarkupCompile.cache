@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 F:\Documentos\universidad\Semestre 8\Desarrollo de Software\Git_Proyecto\BD-DAME-LA-PATA\AdopcionesDameLaPata\InterfazDeUsuario\App.xaml
-3-1225249521
+7-280336955
 
-9-564857793
+13-1878399656
 13-1142990016
-MainWindow.xaml;WindowMenuPerro.xaml;WindowRegistroPerro.xaml;
+MainWindow.xaml;WindowMenuAdopcion.xaml;WindowMenuAdoptante.xaml;WindowMenuPerro.xaml;WindowMenuVisita.xaml;WindowRegistroPerro.xaml;WindowRegistroVisita.xaml;
 
 False
 

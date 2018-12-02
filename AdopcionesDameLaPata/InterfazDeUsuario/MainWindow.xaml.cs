@@ -38,10 +38,19 @@ namespace InterfazDeUsuario
             //Botón que manda al menú de Administración de datos de perros
             BtnIrAAdministracionPerros.Click += (s, e) =>
             {
-                WindowMenuPerro Ventana = new WindowMenuPerro();
+                WindowRegistroPerro Ventana = new WindowRegistroPerro();
                 this.Close();
                 Ventana.Show();
             };
+
+            //Botón que manda al menú de Administración de visitas domiciliarias
+            BtnIrAAdministracionVisitas.Click += (s, e) =>
+            {
+                WindowRegistroVisita Ventana = new WindowRegistroVisita();
+                this.Close();
+                Ventana.Show();
+            };
+
         }
     }
 }

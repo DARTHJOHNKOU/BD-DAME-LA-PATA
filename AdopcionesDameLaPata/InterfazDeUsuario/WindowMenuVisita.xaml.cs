@@ -1,14 +1,4 @@
-﻿/**********************************
-*Asignación de programa: 07
-*Nombre: Carlos Salazar Martínez 
-*Fecha de creación: 29/11/18 
-* 
-* Descripción: Clase que contiene la funcionalidad
-* de la interfaz gráfica del registro de datos de
-* un perro
-**********************************/
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,12 +14,13 @@ using System.Windows.Shapes;
 
 namespace InterfazDeUsuario
 {
-    
-    public partial class WindowRegistroPerro : Window
+    /// <summary>
+    /// Interaction logic for WindowMenuVisita.xaml
+    /// </summary>
+    public partial class WindowMenuVisita : Window
     {
-        public WindowRegistroPerro()
+        public WindowMenuVisita()
         {
-            //Inicialización de los componentes de la UI
             InitializeComponent();
 
             //Botón para regresar al menú anterior.
@@ -39,6 +30,15 @@ namespace InterfazDeUsuario
                 this.Close();
                 Ventana.Show();
             };
-        }
+
+            BtnRegistrarVisita.Click += (s, e) =>
+            {
+                WindowRegistroVisita Ventana = new WindowRegistroVisita();
+                this.Close();
+                Ventana.Show();
+            };
+
+
+         }
     }
 }
