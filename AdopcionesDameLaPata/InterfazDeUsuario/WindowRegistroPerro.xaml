@@ -5,13 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InterfazDeUsuario"
         mc:Ignorable="d"
-        Title="WindowRegistroPerro" Height="450" Width="800">
+        Title="Registro de un perro" Height="450" Width="800">
     <Grid>
-        <Grid Margin="296,84,65,0" >
+
+        <Image Source="Imagenes_Iconos/DLP_Fondo.png" Stretch="Fill"  />
+
+        <Grid Margin="304,50,57,34" >
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="0*"/>
+                <ColumnDefinition Width="96*"/>
+                <ColumnDefinition Width="188*"/>
+                <ColumnDefinition Width="147*"/>
             </Grid.ColumnDefinitions>
 
             <Grid.RowDefinitions>
@@ -24,49 +28,65 @@
             </Grid.RowDefinitions>
 
             <TextBlock Text="Nombre:"
-                       Grid.Column="1" Grid.Row="0"/>
+                       Grid.Column="2" Grid.Row="0"/>
 
             <TextBox x:Name="TxtNombre"
-                     Grid.Column="2" Grid.Row="0"/>
+                     Grid.Column="3" Grid.Row="0"/>
 
 
             <TextBlock Text="Edad:"
-                       Grid.Column="1" Grid.Row="1"/>
+                       Grid.Column="2" Grid.Row="1"/>
 
             <TextBox x:Name="TxtEdad"
-                     Grid.Column="2" Grid.Row="1"/>
+                     Grid.Column="3" Grid.Row="1"/>
 
 
             <TextBlock Text="Raza:"
-                       Grid.Column="1" Grid.Row="2"/>
+                       Grid.Column="2" Grid.Row="2"/>
 
             <TextBox x:Name="TxtRaza"
-                     Grid.Column="2" Grid.Row="2"/>
+                     Grid.Column="3" Grid.Row="2"/>
 
 
             <TextBlock Text="Fecha de ingreso al refugio:"
-                       Grid.Column="1" Grid.Row="3"/>
+                       Grid.Column="2" Grid.Row="3"/>
 
-            <TextBox x:Name="TxtFechaIngreso"
-                     Grid.Column="2" Grid.Row="3"/>
+            <DatePicker x:Name="TxtFechaIngreso"
+                     Grid.Column="3" Grid.Row="3"/>
 
 
             <TextBlock Text="Tamaño del perro:"
-                       Grid.Column="1" Grid.Row="4"/>
+                       Grid.Column="2" Grid.Row="4"/>
 
-            <TextBox x:Name="TxtTamano"
-                     Grid.Column="2" Grid.Row="4"/>
+            <ComboBox x:Name="TxtTamano"
+                     Grid.Column="3" Grid.Row="4">
+                <ComboBoxItem Content="Chico"/>
+                <ComboBoxItem Content="Mediano"/>
+                <ComboBoxItem Content="Grande"/>
+            </ComboBox>
 
 
             <TextBlock Text="¿Está esterilizado? :"
-                       Grid.Column="1" Grid.Row="5"/>
+                       Grid.Column="2" Grid.Row="5"/>
 
-            <TextBox x:Name="TxtEsterilizado"
-                     Grid.Column="2" Grid.Row="5"/>
+            <StackPanel Orientation="Horizontal" Grid.Column="3" Grid.Row="5">
+                <RadioButton Content="Si"></RadioButton>
+                <Separator Width="20" Background="Transparent" ></Separator>
+                <RadioButton Content="No" IsChecked="true"></RadioButton>
+            </StackPanel>
 
 
         </Grid>
-        <Button x:Name="BtnRegresar" Content="Regresar" HorizontalAlignment="Left" Margin="141,148,0,0" VerticalAlignment="Top" Width="75"/>
+
+        <Button x:Name="BtnIngresar" HorizontalAlignment="Left" Margin="653,346,0,37" Width="114" Height="35"
+                Background="Transparent" >
+            <StackPanel Orientation="Horizontal" >
+                <Image Source="Imagenes_Iconos/green_checkmark.png"></Image>
+                <TextBlock Text="Ingresar datos" VerticalAlignment="Center" ></TextBlock>
+            </StackPanel>
+        </Button>
+        
+        <Button x:Name="BtnRegresar" Content="Regresar" HorizontalAlignment="Left" Margin="31,10,0,0" VerticalAlignment="Top" Width="75"/>
 
     </Grid>
 </Window>

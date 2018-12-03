@@ -8,7 +8,7 @@
         Title="Menú principal" Height="430" Width="800">
     <Grid>
 
-        <!--<Image Source="F:\Imagenes\DLP_Fondo.png"  />-->
+        <Image Source="Imagenes_Iconos/DLP_Fondo.png" Stretch="Fill"  />
 
         <Grid Margin="71,36,65,0" >
             <Grid.ColumnDefinitions>
@@ -23,21 +23,30 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <Button x:Name="BtnIrAAdministracionPerros" Content="Registro de un perro"
+            <Button x:Name="BtnIrAAdministracionPerros" Content="Registro de un perro" Background="Transparent"
                     Grid.Column="1" Grid.Row="0" 
-                    ToolTip="Ir al menu de operaciones: ver, registrar y modificar infomación de los perros"></Button>
+                    ToolTip="Ir al formulario de registro de datos de un perro"
+                    ></Button>
+                    <!--ToolTip="Ir al menu de operaciones: ver, registrar y modificar infomación de los perros"-->
+                    
 
-            <Button x:Name="BtnIrAAdministracionAdoptantes" Content="Administracion de información de Adoptantes"
+            <Button x:Name="BtnIrAAdministracionAdoptantes" Content="Registro de un Adoptante" Background="Transparent"
                     Grid.Column="1" Grid.Row="1" 
-                    ToolTip="Ir al menu de operaciones: ver, registrar y modificar infomación de los adoptantes"></Button>
+                    ></Button>
+                    <!--ToolTip="Ir al formulario de registro de datos de un perro"-->
+                    
+                    <!--ToolTip="Ir al menu de operaciones: ver, registrar y modificar infomación de los adoptantes"-->
+                    
 
-            <Button x:Name="BtnIrAAdministracionAdopciones" Content="Administracion de información de Adopciones"
+            <Button x:Name="BtnIrAAdministracionAdopciones" Content="Registro de una Adopción" Background="Transparent"
                     Grid.Column="1" Grid.Row="2"
-                    ToolTip="Ir al menu de operaciones: ver, registrar y modificar infomación de las adopciones"></Button>
+                    ToolTip="Ir al menu de operaciones: ver, registrar y modificar infomación de las adopciones"
+                    ></Button>
 
-            <Button x:Name="BtnIrAAdministracionVisitas" Content="Registro de una visita"
+            <Button x:Name="BtnIrAAdministracionVisitas" Content="Registro de una visita" Background="Transparent"
                     Grid.Column="1" Grid.Row="3"  
-                    ToolTip="Ir al menu de operaciones: ver, registrar y modificar infomación de las visitas"></Button>
+                    ToolTip="Ir al menu de operaciones: ver, registrar y modificar infomación de las visitas"
+                    ></Button>
 
 
         </Grid>

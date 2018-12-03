@@ -1,4 +1,19 @@
-﻿using System;
+﻿/**********************************
+*Asignación de programa: 09
+*Nombre: Carlos Salazar Martínez 
+*Fecha de creación: 02/12/18 
+* 
+* Descripción: Clase que contiene la funcionalidad
+* de la interfaz gráfica del registro de datos de
+* una adopción.
+* 
+* Modificado por:
+* Cambios:
+* 
+**********************************/
+
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,13 +29,12 @@ using System.Windows.Shapes;
 
 namespace InterfazDeUsuario
 {
-    /// <summary>
-    /// Interaction logic for WindowMenuVisita.xaml
-    /// </summary>
-    public partial class WindowMenuVisita : Window
+    
+    public partial class WindowRegistroAdopcion : Window
     {
-        public WindowMenuVisita()
+        public WindowRegistroAdopcion()
         {
+            //Inicialización de los componentes de la UI
             InitializeComponent();
 
             //Botón para regresar al menú anterior.
@@ -31,14 +45,6 @@ namespace InterfazDeUsuario
                 Ventana.Show();
             };
 
-            BtnRegistrarVisita.Click += (s, e) =>
-            {
-                WindowRegistroVisita Ventana = new WindowRegistroVisita();
-                this.Close();
-                Ventana.Show();
-            };
-
-
-         }
+        }
     }
 }

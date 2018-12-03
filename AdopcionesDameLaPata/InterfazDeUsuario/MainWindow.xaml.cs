@@ -51,6 +51,21 @@ namespace InterfazDeUsuario
                 Ventana.Show();
             };
 
+            //Botón que manda al menú de Administración de adoptantes domiciliarias
+            BtnIrAAdministracionAdoptantes.Click += (s, e) =>
+            {
+                WindowRegistroAdoptante Ventana = new WindowRegistroAdoptante();
+                this.Close();
+                Ventana.Show();
+            };
+
+            //Botón que manda al menú de Administración de adopciones domiciliarias
+            BtnIrAAdministracionAdopciones.Click += (s, e) =>
+            {
+                WindowRegistroAdopcion  Ventana = new WindowRegistroAdopcion();
+                this.Close();
+                Ventana.Show();
+            };
         }
     }
 }

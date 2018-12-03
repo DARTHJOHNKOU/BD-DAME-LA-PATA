@@ -1,4 +1,19 @@
-﻿using System;
+﻿/**********************************
+*Asignación de programa: 07
+*Nombre: Carlos Salazar Martínez 
+*Fecha de creación: 02/12/18 
+* 
+* Descripción: Clase que contiene la funcionalidad
+* de la interfaz gráfica del registro de datos de
+* una visita.
+* 
+* Modificado por:
+* Cambios:
+* 
+**********************************/
+
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,14 +28,12 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
 namespace InterfazDeUsuario
-{
-    /// <summary>
-    /// Interaction logic for WindowRegistroVisita.xaml
-    /// </summary>
+{    
     public partial class WindowRegistroVisita : Window
     {
         public WindowRegistroVisita()
         {
+            //Inicialización de los componentes de la UI
             InitializeComponent();
 
             //Botón para regresar al menú anterior.

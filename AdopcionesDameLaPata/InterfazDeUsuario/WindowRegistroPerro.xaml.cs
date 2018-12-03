@@ -1,11 +1,15 @@
 ﻿/**********************************
-*Asignación de programa: 07
+*Asignación de programa: 06
 *Nombre: Carlos Salazar Martínez 
 *Fecha de creación: 29/11/18 
 * 
 * Descripción: Clase que contiene la funcionalidad
 * de la interfaz gráfica del registro de datos de
-* un perro
+* un perro.
+* 
+* Modificado por:
+* Cambios:
+* 
 **********************************/
 
 using System;

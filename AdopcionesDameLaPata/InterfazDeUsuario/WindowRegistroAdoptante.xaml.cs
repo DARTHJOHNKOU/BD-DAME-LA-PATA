@@ -1,13 +1,17 @@
 ﻿/**********************************
-*Asignación de programa: 06
+*Asignación de programa: 08
 *Nombre: Carlos Salazar Martínez 
-*Fecha de creación: 29/11/18
+*Fecha de creación: 02/12/18 
 * 
-*Descripción: Clase que contiene la funcionalidad
-* de la interfaz gráfica del menú de operaciones
-* disponibles para los datos de los perros.
+* Descripción: Clase que contiene la funcionalidad
+* de la interfaz gráfica del registro de datos de
+* un adoptante.
+* 
+* Modificado por:
+* Cambios:
 * 
 **********************************/
+
 
 using System;
 using System.Collections.Generic;
@@ -24,10 +28,11 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
 namespace InterfazDeUsuario
-{    
-    public partial class WindowMenuPerro : Window
+{
+    
+    public partial class WindowRegistroAdoptante : Window
     {
-        public WindowMenuPerro()
+        public WindowRegistroAdoptante()
         {
             //Inicialización de los componentes de la UI
             InitializeComponent();
@@ -36,14 +41,6 @@ namespace InterfazDeUsuario
             BtnRegresar.Click += (s, e) =>
             {
                 MainWindow Ventana = new MainWindow();
-                this.Close();
-                Ventana.Show();
-            };
-
-            //Botón que lleva al menú de Registro de datos de un perro.
-            BtnRegistrarPerro.Click += (s, e) =>
-            {
-                WindowRegistroPerro Ventana = new WindowRegistroPerro();
                 this.Close();
                 Ventana.Show();
             };

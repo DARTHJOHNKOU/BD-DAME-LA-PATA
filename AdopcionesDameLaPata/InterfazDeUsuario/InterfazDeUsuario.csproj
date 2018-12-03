@@ -54,17 +54,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="WindowMenuAdopcion.xaml.cs">
-      <DependentUpon>WindowMenuAdopcion.xaml</DependentUpon>
+    <Compile Include="WindowRegistroAdopcion.xaml.cs">
+      <DependentUpon>WindowRegistroAdopcion.xaml</DependentUpon>
     </Compile>
-    <Compile Include="WindowMenuAdoptante.xaml.cs">
-      <DependentUpon>WindowMenuAdoptante.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="WindowMenuPerro.xaml.cs">
-      <DependentUpon>WindowMenuPerro.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="WindowMenuVisita.xaml.cs">
-      <DependentUpon>WindowMenuVisita.xaml</DependentUpon>
+    <Compile Include="WindowRegistroAdoptante.xaml.cs">
+      <DependentUpon>WindowRegistroAdoptante.xaml</DependentUpon>
     </Compile>
     <Compile Include="WindowRegistroPerro.xaml.cs">
       <DependentUpon>WindowRegistroPerro.xaml</DependentUpon>
@@ -86,19 +80,11 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="WindowMenuAdopcion.xaml">
+    <Page Include="WindowRegistroAdopcion.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="WindowMenuAdoptante.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="WindowMenuPerro.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="WindowMenuVisita.xaml">
+    <Page Include="WindowRegistroAdoptante.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -136,6 +122,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes_Iconos\DLP_Fondo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes_Iconos\green_checkmark.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
