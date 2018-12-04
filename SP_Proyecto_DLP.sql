@@ -1,204 +1,277 @@
+--Se crea la Bd
+CREATE DATABASE Proyecto_DLP
+GO
+
 --SE usa la Bd creada para las adopciones--
-Use DATABASE Proyecto_DLP
+USE Proyecto_DLP
+GO
+
+CREATE TABLE Perro
+(
+	IdPerro INT IDENTITY(1,1) PRIMARY KEY,
+	Nombre VARCHAR(30),
+	FechaIngreso DATE,
+	Edad INT,
+	Raza VARCHAR(30),
+	Tamaño VARCHAR(30),
+	Esterilizado VARCHAR(2),
+	Adoptado VARCHAR(2),
+)
+GO
+
+CREATE TABLE Adoptante
+(
+	IdAdoptante INT IDENTITY(1,1) PRIMARY KEY,
+	Nombre VARCHAR(50),
+	Edad INT,
+	Domicilio VARCHAR(50),
+	Telefono VARCHAR(10)
+)
+GO
+
+CREATE TABLE Adopcion
+(
+	IdAdopcion INT IDENTITY(1,1) PRIMARY KEY,
+	IdAdoptante INT,
+	IdPerro INT,
+	FechaAdopcion DATE,
+	Lugar VARCHAR(50),
+
+	FOREIGN KEY(IdAdoptante) REFERENCES Adoptante(IdAdoptante),
+	FOREIGN KEY(IdPerro) REFERENCES Perro(IdPerro)
+)
+GO
+
+
+CREATE TABLE Visita
+(
+	IdVisita INT IDENTITY(1,1) PRIMARY KEY,
+	IdAdoptante INT,
+	Lugar VARCHAR(50),
+	FechaVisita DATE,
+	FechaProximaVisita DATE,
+	NombreVisitante VARCHAR(50),
+	Observaciones VARCHAR(500),
+	
+	FOREIGN KEY(IdAdoptante) REFERENCES Adoptante(IdAdoptante)	
+)
+GO
+
+CREATE TABLE Vacuna
+(
+	IdVacuna INT IDENTITY(1,1) PRIMARY KEY,
+	IdPerro INT,
+	TipoVacuna VARCHAR(30),
+	Fecha DATE,
+
+	FOREIGN KEY(idPerro) REFERENCES Perro(IdPerro)
+)
+GO
+
+-- METODOS PARA LA TABLA PERRO	
 
 -- Metodo para insertar un perro--
 CREATE PROCEDURE SP_InsertPerro
 	@Nombre VARCHAR(30),
 	@FechaIngreso DATE,
 	@Edad INT,
-	@Raza VARCHAR(20),
-	@Tamaño DECIMAL(7,2),
-	@Esterilizado BIT,
-	@Adoptado as varchar(2)
+	@Raza VARCHAR(30),
+	@Tamaño VARCHAR(30),
+	@Esterilizado VARCHAR(2),
+	@Adoptado VARCHAR(2)
 	
 AS
-  BEGIN
-      INSERT INTO Perro(Nombre, FechaIngreso, Edad, Tamaño, Esterilizado, Adoptado) 
-	  VALUES(@Nombre, @FechaIngreso, @Edad, @Tamaño, @Esterilizado, @Adoptado)
-  END
+	BEGIN
+		INSERT INTO Perro(Nombre, FechaIngreso, Edad, Raza, Tamaño, Esterilizado, Adoptado) 
+		VALUES(@Nombre, @FechaIngreso, @Edad, @Raza, @Tamaño, @Esterilizado, @Adoptado)		
+	END
 GO
 
 -- Metodo para Actualizar un perro--
 CREATE PROCEDURE SP_UpdatePerro
-    @IdPerro As int, 
-  	@Nombre VARCHAR(30),
+    @IdPerro INT,
+	@Nombre VARCHAR(30),
 	@FechaIngreso DATE,
 	@Edad INT,
-	@Raza VARCHAR(20),
-	@Tamaño DECIMAL(7,2),
-	@Esterilizado BIT,
-	@Adoptado as varchar(2)
+	@Raza VARCHAR(30),
+	@Tamaño VARCHAR(30),
+	@Esterilizado VARCHAR(2),
+	@Adoptado VARCHAR(2)
 	
 AS
-  BEGIN
-      INSERT INTO Perro(IdPerro, Nombre, FechaIngreso, Edad, Tamaño, Esterilizado, Adoptado) 
-	  VALUES(@IdPerro, @Nombre, @FechaIngreso, @Edad, @Tamaño, @Esterilizado, @Adoptado)
-  END
+	BEGIN
+		INSERT INTO Perro(IdPerro, Nombre, FechaIngreso, Edad, Tamaño, Esterilizado, Adoptado) 
+		VALUES(@IdPerro, @Nombre, @FechaIngreso, @Edad, @Tamaño, @Esterilizado, @Adoptado)
+	END
 GO
 
--- Metodo paraSeleccionar un perro--
+-- Metodo para Seleccionar un perro--
 CREATE PROCEDURE SP_SelectPerro
- @Nombre
-AS
-  BEGIN
-  SELECT * FROM Perro WHERE Nombre=@IdNombre
+	@Nombre VARCHAR(30)
+AS	
+	BEGIN
+		SELECT * FROM Perro WHERE Nombre=@Nombre
+	END
+GO
 
-  END
-  GO
-  -- Metodo para Selecccionar todos los perros--
-  CREATE PROCEDURE SP_SelectPerros
-  AS
-    BEGIN
-    SELECT * FROM Perro
-   END
-  GO 
+-- Metodo para Seleccionar un perro disponible para ser adoptado--
+CREATE PROCEDURE SP_SelectPerroDisponible	
+AS	
+	BEGIN
+		SELECT * FROM Perro WHERE Adoptado='No'
+	END
+GO
+  
+-- Metodo para Selecccionar todos los perros--
+CREATE PROCEDURE SP_SelectPerros
+AS
+	BEGIN
+		SELECT * FROM Perro
+	END
+GO 
 
   
   --METODOS PARA LA TABLA VACUNAS ---
 
-  -- Metodo para insertar una vacuna--
-CREATE PROCEDURE SP_InserVacuna
-	@IdPerro As int,
+-- Metodo para insertar una vacuna--
+CREATE PROCEDURE SP_InsertVacuna
+	@IdPerro INT,
 	@Fecha DATE,
-	@TipoVacuna As varchar(30)
+	@TipoVacuna VARCHAR(30)
 	
 AS
-  BEGIN
-      INSERT INTO Vacuna(IdPerro, Fecha, TipoVacuna) 
-	  VALUES(@IdPerro, @Fecha, @TipoVacuna)
-  END
+	BEGIN
+		INSERT INTO Vacuna(IdPerro, Fecha, TipoVacuna) 
+		VALUES(@IdPerro, @Fecha, @TipoVacuna)
+	END
 GO
 
 -- Metodo para Actualizar una vacuna--
 CREATE PROCEDURE SP_UpdateVacuna
-    @IdVacuna As int, 
-	@IdPerro As int,
+    @IdVacuna INT, 
+	@IdPerro INT,
 	@Fecha DATE,
-	@TipoVacuna As varchar(30)
+	@TipoVacuna VARCHAR(30)
 	
 AS
-  BEGIN
-      INSERT INTO Vacuna(IdVacuna, IdPerro, Fecha, TipoVacuna) 
-	  VALUES(@IdVacuna, @IdPerro, @Fecha, @TipoVacuna)
-  END
+	BEGIN
+		INSERT INTO Vacuna(IdVacuna, IdPerro, Fecha, TipoVacuna) 
+		VALUES(@IdVacuna, @IdPerro, @Fecha, @TipoVacuna)
+	END
 GO
 
 -- Metodo paraSeleccionar una Vacuna--
 CREATE PROCEDURE SP_SelectVacuna
- @TipoVacuna
+	@TipoVacuna INT
 AS
-  BEGIN
-  SELECT * FROM Vacuna WHERE TipoVacuna=@TipoVacuna
+	BEGIN
+		SELECT * FROM Vacuna WHERE TipoVacuna=@TipoVacuna
+	END
+GO
 
-  END
-  GO
-  -- Metodo para Selecccionar todas las Vacunas--
-  CREATE PROCEDURE SP_SelectVacunas
-  AS
+-- Metodo para Selecccionar todas las Vacunas--
+CREATE PROCEDURE SP_SelectVacunas
+AS
     BEGIN
-    SELECT * FROM Vacuna
-   END
-  GO 
-
-
+	    SELECT * FROM Vacuna
+	END
+GO 
 
 
   --METODOS PARA LA TABLA ADOPCIONES ---
 
-
   -- Metodo para insertar una adopcion--
 CREATE PROCEDURE SP_InsertAdopcion
-	@IdPerro AS int,
-	@IdAdoptante As int,
-	@FechaAdopcion As int, 
-	@Lugar As varchar(50)
+	@IdPerro INT,
+	@IdAdoptante INT,
+	@FechaAdopcion INT, 
+	@Lugar VARCHAR(50)
 	
 AS
-  BEGIN
-      INSERT INTO Adopcion(IdPerro, IdAdopatnte, FechaAdopcion, Lugar) 
-	  VALUES(@IdPerro, @IdAdoptante, @FechaAdopcion, @Lugar)
-  END
+	BEGIN
+		INSERT INTO Adopcion(IdPerro, IdAdoptante, FechaAdopcion, Lugar) 
+		VALUES(@IdPerro, @IdAdoptante, @FechaAdopcion, @Lugar)
+	END
 GO
 
 -- Metodo para Actualizar una adopcion--
 CREATE PROCEDURE SP_UpdateAdopcion
-    @IdAdopcion As int, 
- 	@IdPerro AS int,
-	@IdAdoptante As int,
-	@FechaAdopcion As int, 
-	@Lugar As varchar(50)
+    @IdAdopcion INT, 
+ 	@IdPerro INT,
+	@IdAdoptante INT,
+	@FechaAdopcion INT, 
+	@Lugar VARCHAR(50)
 	
 AS
-  BEGIN
-    INSERT INTO Adopcion(IdAdopcion, IdPerro, IdAdoptante, FechaAdopcion, Lugar)
-	 VALUES(@IdAdopcion, @IdPerro, @IdAdoptante, @FechaAdopcion, @Lugar)
-  END
+	BEGIN
+		INSERT INTO Adopcion(IdAdopcion, IdPerro, IdAdoptante, FechaAdopcion, Lugar)
+		VALUES(@IdAdopcion, @IdPerro, @IdAdoptante, @FechaAdopcion, @Lugar)
+	END
 GO
 
 -- Metodo paraSeleccionar una Adopcion--
 CREATE PROCEDURE SP_SelectAdopcion
- @IdPerro As int 
+	@IdPerro INT 
 AS
-  BEGIN
-  SELECT * FROM  Adopcion WHERE IdPerro=@IdPerro
+	BEGIN
+		SELECT * FROM  Adopcion WHERE IdPerro=@IdPerro
+	END
+GO
 
-  END
-  GO
   -- Metodo para Selecccionar todas las Adopciones
-  CREATE PROCEDURE SP_SelectAdopciones
-  AS
+CREATE PROCEDURE SP_SelectAdopciones
+AS
     BEGIN
-    SELECT * FROM Adopcion
-   END
-  GO 
+		SELECT * FROM Adopcion
+	END
+GO 
 
   
-   --METODOS PARA LA TABLA ADOPTANTES--
+--METODOS PARA LA TABLA ADOPTANTES--  
 
-
-  -- Metodo para insertar una adoptante--
+-- Metodo para insertar una adoptante--
 CREATE PROCEDURE SP_InsertAdoptante
-	@Nombre As varchar(50),
-	@Edad As int,
-	@Domicilio As varchar(50),
-	@Telefono As Varchar(10)
+	@Nombre VARCHAR(50),
+	@Edad INT,
+	@Domicilio VARCHAR(50),
+	@Telefono VARCHAR(10)
 AS
-  BEGIN
+	BEGIN
       INSERT INTO Adoptante(Nombre, Edad, Domicilio, Telefono) 
 	  VALUES(@Nombre, @Edad, @Domicilio, @Telefono)
-  END
+	END
 GO
 
 -- Metodo para Actualizar una adoptante--
-CREATE PROCEDURE SP_UpdateAdopcion
-    @IdAdoptante As int, 
- 	@Nombre As varchar(50),
-	@Edad As int,
-	@Domicilio As varchar(50),
-	@Telefono As Varchar(10)
+CREATE PROCEDURE SP_UpdateAdoptante
+    @IdAdoptante INT, 
+ 	@Nombre VARCHAR(50),
+	@Edad INT,
+	@Domicilio VARCHAR(50),
+	@Telefono VARCHAR(10)
 AS
-  BEGIN
-      INSERT INTO Adoptante(IdAdoptante, Nombre, Edad, Domicilio, Telefono) 
-	  VALUES(@IdAdoptante, @Nombre, @Edad, @Domicilio, @Telefono)
-  END
+	BEGIN
+		INSERT INTO Adoptante(IdAdoptante, Nombre, Edad, Domicilio, Telefono) 
+		VALUES(@IdAdoptante, @Nombre, @Edad, @Domicilio, @Telefono)
+	END
 GO
 
 -- Metodo paraSeleccionar una Adopcion--
 CREATE PROCEDURE SP_SelectAdoptante
- @Nombre As varchar(50)
+	@Nombre VARCHAR(50)
 AS
-  BEGIN
-  SELECT * FROM  Adoptante WHERE Nombre=@Nombre
+	BEGIN
+	SELECT * FROM  Adoptante WHERE Nombre=@Nombre
+	END
+GO
 
-  END
-  GO
-  -- Metodo para Selecccionar todos los adoptantes--
-  CREATE PROCEDURE SP_SelectAdoptantes
-  AS
-    BEGIN
-    SELECT * FROM Adoptante
-   END
-  GO 
+-- Metodo para Selecccionar todos los adoptantes--
+CREATE PROCEDURE SP_SelectAdoptantes
+AS
+	BEGIN
+		SELECT * FROM Adoptante
+	END
+GO 
 
 
    
@@ -207,47 +280,50 @@ AS
 
   -- Metodo para insertar una Visita--
 CREATE PROCEDURE SP_InsertVisita
-	@IdAdoptante As int,
-	@Lugar As varchar(50),
-	@FechaVisita As Date,
-	@NombreVisitante As varchar(50),
-	@Observaciones As varchar(50)
+	@IdAdoptante INT,
+	@Lugar VARCHAR(50),
+	@FechaVisita DATE,
+	@FechaProximaVisita DATE,
+	@NombreVisitante VARCHAR(50),
+	@Observaciones VARCHAR(500)
 AS
   BEGIN
-      INSERT INTO Visita(IdAdoptante, Lugar, FechaVisita, NombreVistante, Observaciones) 
-	  VALUES(@IdAdoptante, @Lugar, @FechVisita, @NombreVisitante, @Observaciones)
+      INSERT INTO Visita(IdAdoptante, Lugar, FechaVisita, FechaProximaVisita, NombreVisitante, Observaciones) 
+	  VALUES(@IdAdoptante, @Lugar, @FechaVisita, @FechaProximaVisita, @NombreVisitante, @Observaciones)
   END
 GO
 
 -- Metodo para Actualizar una Visita--
 CREATE PROCEDURE SP_UpdateVisita
-    @IdVisita As int, 
- 	@IdAdoptante As int,
-	@Lugar As varchar(50),
-	@FechaVisita As Date,
-	@NombreVisitante As varchar(50),
-	@Observaciones As varchar(50)
+    @IdVisita INT, 
+ 	@IdAdoptante INT,
+	@Lugar VARCHAR(50),
+	@FechaVisita DATE,
+	@FechaProximaVisita DATE,
+	@NombreVisitante VARCHAR(50),
+	@Observaciones VARCHAR(500)
 AS
-  BEGIN
-      INSERT INTO Visita(IdVisita, IdAdoptante, Lugar, FechaVisita, NombreVistante, Observaciones) 
-	  VALUES(@IdVisita, @IdAdoptante, @Lugar, @FechVisita, @NombreVisitante, @Observaciones)
-  END
+	BEGIN
+		INSERT INTO Visita(IdVisita, IdAdoptante, Lugar, FechaVisita, FechaProximaVisita, NombreVisitante, Observaciones) 
+		VALUES(@IdVisita, @IdAdoptante, @Lugar, @FechaVisita, @FechaProximaVisita, @NombreVisitante, @Observaciones)
+	END
 GO
 
--- Metodo paraSeleccionar una Visita--
+-- Metodo para Seleccionar una Visita--
 CREATE PROCEDURE SP_SelectVisita
- @IdAdoptante As int
-AS
-  BEGIN
-  SELECT * FROM  Visita WHERE IdAdoptante=@IdAdoptante
+	@IdAdoptante INT
 
-  END
-  GO
-  -- Metodo para Selecccionar todas las visitas--
-  CREATE PROCEDURE SP_SelectVisitas
-  AS
-    BEGIN
-    SELECT * FROM Visita
-   END
-  GO 
+AS	
+	BEGIN
+		SELECT * FROM  Visita WHERE IdAdoptante=@IdAdoptante
+	END
+GO
+  
+-- Metodo para Selecccionar todas las visitas--
+CREATE PROCEDURE SP_SelectVisitas
+AS
+	BEGIN
+		SELECT * FROM Visita
+	END
+GO 
 
