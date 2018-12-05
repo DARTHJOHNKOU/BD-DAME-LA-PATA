@@ -7,8 +7,10 @@
 * de la interfaz gráfica del registro de datos de
 * un perro.
 * 
-* Modificado por:
+* Modificado por: Victoria Martínez Villagomez 
 * Cambios:
+* Agregar la función del boton BtnIngresar para poder 
+* hacer el envio de datos  la BD 
 * 
 **********************************/
 
@@ -31,10 +33,38 @@ namespace InterfazDeUsuario
     
     public partial class WindowRegistroPerro : Window
     {
+        ClassPerro Perro = new ClassPerro();
+
         public WindowRegistroPerro()
         {
             //Inicialización de los componentes de la UI
             InitializeComponent();
+
+            // visualizar perros
+            VerPerros.ItemsSource = Perro.SelectPerros().Tables[0].DefaultView;
+
+            // variable para 
+            string Esterilizado;
+
+            // se verifica cual radiobutton esta seleccionado para indicar si el perro esta esterilizado o no
+            if (rbSi.IsChecked == true)
+            {
+                Esterilizado = "Si";
+            }
+            else
+            {
+                Esterilizado = "No";
+            }
+
+            if (rbNo.IsChecked == true)
+            {
+                Esterilizado = "No";
+            }
+            else
+            {
+                Esterilizado = "Si";
+            }
+
 
             //Botón para regresar al menú anterior.
             BtnRegresar.Click += (s, e) =>
@@ -42,6 +72,16 @@ namespace InterfazDeUsuario
                 MainWindow Ventana = new MainWindow();
                 this.Close();
                 Ventana.Show();
+            };
+
+            // boton para insertar los datos en la BD
+            BtnIngresar.Click += (s, e) =>
+            {
+                string Adoptado = "No";
+
+                Perro.RegistroPerro(TxtNombre.Text, DateTime.Parse(TxtFechaIngreso.Text), int.Parse(TxtEdad.Text), TxtRaza.Text, TxtTamano.Text, Esterilizado, Adoptado);
+                MessageBox.Show("Perro guardado con exito");
+                VerPerros.ItemsSource = Perro.SelectPerros().Tables[0].DefaultView;
             };
         }
     }

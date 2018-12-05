@@ -54,6 +54,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ClassAdopcion.cs" />
+    <Compile Include="ClassAdoptante.cs" />
+    <Compile Include="ClassVisita.cs" />
     <Compile Include="WindowRegistroAdopcion.xaml.cs">
       <DependentUpon>WindowRegistroAdopcion.xaml</DependentUpon>
     </Compile>

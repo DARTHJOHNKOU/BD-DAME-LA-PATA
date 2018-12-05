@@ -10,7 +10,7 @@
 
         <Image Source="Imagenes_Iconos/DLP_Fondo.png" Stretch="Fill"  />
 
-        <Grid Margin="71,36,65,0" >
+        <Grid Margin="71,36,65,23" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>

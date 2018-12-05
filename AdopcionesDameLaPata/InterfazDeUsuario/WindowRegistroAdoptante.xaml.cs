@@ -45,6 +45,12 @@ namespace InterfazDeUsuario
                 Ventana.Show();
             };
 
+            //Boton para ingresar los datos a la BD
+            BtnIngresar.Click += (s, e) =>
+            {
+               
+            };
+
         }
     }
 }

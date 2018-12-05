@@ -10,75 +10,81 @@
 
         <Image Source="Imagenes_Iconos/DLP_Fondo.png" Stretch="Fill"  />
 
-        <Grid Margin="336,47,25,37" >
+        <Grid Margin="480,47,10,78" >
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="144*"/>
-                <ColumnDefinition Width="164*"/>
-                <ColumnDefinition Width="123*"/>
+                <ColumnDefinition Width="0*"/>
+                <ColumnDefinition Width="139*"/>
+                <ColumnDefinition Width="156*"/>
+            
             </Grid.ColumnDefinitions>
 
             <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="37*"/>
+                <RowDefinition Height="76*"/>
+                <RowDefinition Height="41*"/>
+                <RowDefinition Height="34*"/>
+                <RowDefinition Height="47*"/>
+                <RowDefinition Height="0*"/>
+                <RowDefinition Height="50*"/>
             </Grid.RowDefinitions>
 
-            <TextBlock Text="Adoptante:" Grid.Row="0"/>
+            <TextBlock Text="Adoptante:" Grid.Row="0" Grid.ColumnSpan="2"/>
 
-            <TextBox x:Name="TxtNombre"
-                Grid.Column="1" Grid.Row="0" Margin="0,0,1,0"/>
+            <ComboBox x:Name="TxtNombre"
+                Grid.Column="2" Grid.Row="0" Margin="0,0,1,0"/>
 
 
-            <TextBlock Text="Domicilio:" Grid.Row="1"/>
-
-            <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="1">
-                <TextBlock Text="Ciudad"/>
-                <TextBox x:Name="TxtCiudad"/>
-            </StackPanel>
+            <TextBlock Text="Domicilio:" Grid.Row="1" Grid.ColumnSpan="2"/>
 
             <StackPanel Orientation="Vertical" Grid.Column="2" Grid.Row="1">
+                <TextBlock Text="Ciudad"/>
+                <TextBox x:Name="TxtCiudad"/>
                 <TextBlock Text="Calle y numero"/>
                 <TextBox x:Name="TxtCalle"/>
+
             </StackPanel>
 
-            <TextBlock Text="Fecha de la visita:" Grid.Row="2"/>
-
-            <DatePicker x:Name="TxtRaza"
-                Grid.Column="1" Grid.Row="2" Margin="0,0,1,0"/>
 
 
-            <TextBlock Text="Fecha de la próxima visita:" Grid.Row="3"/>
+            <TextBlock Text="Fecha de la visita:" Grid.Row="2" Grid.ColumnSpan="2"/>
 
-            <DatePicker x:Name="TxtFechaIngreso" Text=""
-                Grid.Column="1" Grid.Row="3" Margin="0,0,1,0"/>
-
-
-            <TextBlock Text="Nombre de la persona&#10;que realizó la visita:" Grid.Row="4"/>
-
-            <TextBox x:Name="TxtTamano"
-                Grid.Column="1" Grid.Row="4" Margin="0,0,1,0"/>
+            <DatePicker x:Name="TxtFechaVisita"
+                Grid.Column="2" Grid.Row="2" Margin="0,0,1,0"/>
 
 
-            <TextBlock Text="Observaciones:" Grid.Row="5"/>
+            <TextBlock Text="Fecha de la próxima visita:" Grid.Row="3" Grid.ColumnSpan="2"/>
 
-            <RichTextBox  x:Name="TxtEsterilizado"
-                Grid.Column="1" Grid.Row="5" Margin="0,0,1,0"/>
+            <DatePicker x:Name="TxtFechaProxima" Text=""
+                Grid.Column="2" Grid.Row="3" Margin="0,0,1,0"/>
+
+
+            <TextBlock Text="Nombre de la persona&#10;que realizó la visita:" Grid.Row="4" Grid.ColumnSpan="2"/>
+
+            <TextBox x:Name="TxtVisitante"
+                Grid.Column="2" Grid.Row="4" Margin="0,0,1,0"/>
+
+
+            <TextBlock Text="Observaciones:" Grid.Row="6" Grid.ColumnSpan="2"/>
+
+            <RichTextBox  x:Name="TxtObservaciones"
+                Grid.Column="2" Grid.Row="6" Margin="0,0,1,0"/>
 
 
         </Grid>
 
-        <Button x:Name="BtnIngresar" HorizontalAlignment="Left" Margin="653,346,0,37" Width="114" Height="35"
+        <Button x:Name="BtnIngresar" HorizontalAlignment="Left" Margin="670,346,0,23" Width="112"
                 Background="Transparent" >
             <StackPanel Orientation="Horizontal" >
-                <Image Source="Imagenes_Iconos/green_checkmark.png"></Image>
+                <Image Source="Imagenes_Iconos/green_checkmark.png" Height="31" Width="26"></Image>
                 <TextBlock Text="Ingresar datos" VerticalAlignment="Center" ></TextBlock>
             </StackPanel>
         </Button>
 
         <Button x:Name="BtnRegresar" Content="Regresar" HorizontalAlignment="Left" Margin="30,10,0,0" VerticalAlignment="Top" Width="75"/>
+
+        <DataGrid x:Name="VerVisitas" Background="Transparent" Margin="10,47,331,23">
+
+        </DataGrid>
 
     </Grid>
 </Window>
