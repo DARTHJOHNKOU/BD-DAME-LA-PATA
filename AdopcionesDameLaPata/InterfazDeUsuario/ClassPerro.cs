@@ -7,6 +7,34 @@
 * base de datos para usar los Stored Procedures
 * de registrar, modificar y visualizar datos de               
 * perros.              
+* 
+*Modificado por: Carlos Salazar Martínez               
+*Cambios: Cambios de nombre a variables. Documentación    
+*Fecha de modificación: 06/12/18
+* 
+* 
+*Declaraciones        
+*   °ClassConexionBD Link
+*   °SqlCommand Comando
+*   °DataSet Conjunto
+*   °SqlCommand Buscar
+*   °SqlAdapter Adaptador
+* 
+* 
+*   °public bool RegistroPerro(string Nombre, DateTime FechaIngreso, int Edad, string Raza, string Tamaño, string Esterilizado, string Adoptado) 
+*       Propósito: ingresar los datos que recibe como parámetros a la base de datos.
+*       Limitaciones: en la Edad no se debe ingresar letras o símbolos.
+*                     Nombre no debe exceder los 30 caracteres.
+*       Regresa True si se completó con éxito el guardado de datos en la BD. Caso contrario, retorna False. 
+* 
+*   °public DataSet SelectPerros()
+*       Propósito: Obtener un conjunto de datos recuperados de la base de datos.
+*       Limitaciones:
+*       Regresa un conjunto de datos si la recuperación se logró. Caso contrario, regresa un conjunto vacío.
+*   
+*Código fuente de ClassConexionBD en: /InterfazDeUsuario/ClassConexionBD.cs
+*   °SqlConnection LinkConexion
+* 
 **********************************/
 
 
@@ -61,14 +89,14 @@ namespace InterfazDeUsuario
             SqlCommand Buscar = new SqlCommand("EXEC SP_SelectPerros", Link.LinkConexion);
             // Dim Buscar As New SqlClient.SqlCommand("EXEC SP_SelectAdoptantes", Cadena.Cadena)
             //  Dim u As New SqlClient.SqlDataAdapter();
-            SqlDataAdapter u = new SqlDataAdapter();
+            SqlDataAdapter Adaptador = new SqlDataAdapter();
 
-            u.SelectCommand = Buscar;
+            Adaptador.SelectCommand = Buscar;
 
             try
             {
                 Link.LinkConexion.Open();
-                u.Fill(Conjunto);
+                Adaptador.Fill(Conjunto);
                 Link.LinkConexion.Close();
                 return Conjunto;
             }

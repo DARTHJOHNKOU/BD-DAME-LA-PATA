@@ -9,6 +9,10 @@
 * 
 * Modificado por:
 * Cambios:
+* Fecha de modificación;
+* 
+* Declaraciones:
+*   °MainWindow Ventana
 * 
 **********************************/
 

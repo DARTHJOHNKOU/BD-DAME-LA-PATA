@@ -5,6 +5,13 @@
 * 
 *Descripción: Clase que contiene la funcionalidad
 * de la interfaz gráfica del menú principal.
+* 
+* 
+* Modificado por:
+* Cambios:
+* Fecha de modificación:
+* 
+* 
 **********************************/
 
 
@@ -27,8 +34,6 @@ namespace InterfazDeUsuario
 {    
     public partial class MainWindow : Window
     {
-        //Objeto de la clase Perro para llamar las funciones de registro y actualización de datos.
-        ClassPerro Operaciones = new ClassPerro();
 
         public MainWindow()
         {

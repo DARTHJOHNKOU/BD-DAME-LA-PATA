@@ -70,9 +70,9 @@
                        Grid.Column="2" Grid.Row="5"/>
 
             <StackPanel Orientation="Horizontal" Grid.Column="3" Grid.Row="5">
-                <RadioButton x:Name="rbSi" Content="Si"></RadioButton>
+                <RadioButton x:Name="RbSi" Content="Si"></RadioButton>
                 <Separator Width="20" Background="Transparent" ></Separator>
-                <RadioButton x:Name="rbNo" Content="No" IsChecked="true"></RadioButton>
+                <RadioButton x:Name="RbNo" Content="No" IsChecked="true"></RadioButton>
             </StackPanel>
 
 

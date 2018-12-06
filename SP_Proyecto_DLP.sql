@@ -329,4 +329,5 @@ AS
 	END
 GO 
 
-DROP PROCEDURE SP_SelectVisitas
+INSERT INTO Adoptante(Nombre, Edad, Domicilio, Telefono) 
+VALUES('Daniela Rodriguez', 25, 'Moroleon', '4452743245')

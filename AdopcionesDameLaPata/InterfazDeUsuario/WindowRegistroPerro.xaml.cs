@@ -11,6 +11,26 @@
 * Cambios:
 * Agregar la función del boton BtnIngresar para poder 
 * hacer el envio de datos  la BD 
+* Fecha de modificación: 
+* 
+* Declaraciones:
+*   °MainWindow Ventana
+*   °ClassPerro Perro
+*   °string Esterilizado
+*   °string Adoptado
+* 
+* Código fuente de ClassPerro en: /InterfazDeUsuario/ClassPerro.cs
+*   
+*   ° bool RegistroPerro(string Nombre, DateTime FechaIngreso, int Edad, string Raza, string Tamaño, string Esterilizado, string Adoptado)
+*       Propósito: ingresar los datos que recibe como parámetros a la base de datos.
+*       Limitaciones: en la Edad no se debe ingresar letras o símbolos.
+*                     Nombre no debe exceder los 30 caracteres.
+*       Regresa True si se completó con éxito el guardado de datos en la BD. Caso contrario, retorna False. 
+*   
+*   ° DataSet SelectPerros()
+*       Propósito: Obtener un conjunto de datos recuperados de la base de datos.
+*       Limitaciones:
+*       Regresa un conjunto de datos si la recuperación se logró. Caso contrario, regresa un conjunto vacío.
 * 
 **********************************/
 
@@ -43,11 +63,11 @@ namespace InterfazDeUsuario
             // visualizar perros
             VerPerros.ItemsSource = Perro.SelectPerros().Tables[0].DefaultView;
 
-            // variable para 
+            // variable para guarfar el valor de si fue esterilizado o no el perro.
             string Esterilizado;
 
             // se verifica cual radiobutton esta seleccionado para indicar si el perro esta esterilizado o no
-            if (rbSi.IsChecked == true)
+            if (RbSi.IsChecked == true)
             {
                 Esterilizado = "Si";
             }
@@ -56,7 +76,7 @@ namespace InterfazDeUsuario
                 Esterilizado = "No";
             }
 
-            if (rbNo.IsChecked == true)
+            if (RbNo.IsChecked == true)
             {
                 Esterilizado = "No";
             }
