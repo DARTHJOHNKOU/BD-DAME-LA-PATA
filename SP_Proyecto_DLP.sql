@@ -184,7 +184,7 @@ GO
 CREATE PROCEDURE SP_InsertAdopcion
 	@IdPerro INT,
 	@IdAdoptante INT,
-	@FechaAdopcion INT, 
+	@FechaAdopcion DATE, 
 	@Lugar VARCHAR(50)
 	
 AS
@@ -199,7 +199,7 @@ CREATE PROCEDURE SP_UpdateAdopcion
     @IdAdopcion INT, 
  	@IdPerro INT,
 	@IdAdoptante INT,
-	@FechaAdopcion INT, 
+	@FechaAdopcion DATE, 
 	@Lugar VARCHAR(50)
 	
 AS
@@ -323,7 +323,10 @@ GO
 CREATE PROCEDURE SP_SelectVisitas
 AS
 	BEGIN
-		SELECT * FROM Visita
+		SELECT Adoptante.Nombre As 'Adoptante', Lugar, FechaVisita, FechaProximaVisita, NombreVisitante, Observaciones
+	    FROM Visita
+		INNER JOIN Adoptante ON Visita.IdAdoptante=Adoptante.IdAdoptante
 	END
 GO 
 
+DROP PROCEDURE SP_SelectVisitas
