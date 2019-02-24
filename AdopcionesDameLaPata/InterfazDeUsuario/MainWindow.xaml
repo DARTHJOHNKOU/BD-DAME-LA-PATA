@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InterfazDeUsuario"
         mc:Ignorable="d"
-        Title="Menú principal" Height="430" Width="800">
+        Title="Menú principal" Height="430" Width="800" WindowState="Maximized" >
     <Grid>
 
         <Image Source="Imagenes_Iconos/DLP_Fondo.png" Stretch="Fill"  />

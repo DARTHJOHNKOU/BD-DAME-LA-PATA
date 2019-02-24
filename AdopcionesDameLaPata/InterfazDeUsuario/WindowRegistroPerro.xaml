@@ -5,92 +5,118 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InterfazDeUsuario"
         mc:Ignorable="d"
-        Title="Registro de un perro" Height="450" Width="800">
+        Title="Registro de un perro" Height="700" Width="1000" WindowState="Maximized" >
     <Grid>
 
         <Image Source="Imagenes_Iconos/DLP_Fondo.png" Stretch="Fill"  />
-
-        <Grid Margin="304,50,57,34" >
+       
+        <Grid Margin="0,89,0,41">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="0*"/>
-                <ColumnDefinition Width="96*"/>
-                <ColumnDefinition Width="188*"/>
-                <ColumnDefinition Width="147*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
+            <DataGrid x:Name="VerPerros" Background="Transparent" Grid.Column="0"/>
 
-            <TextBlock Text="Nombre:"
-                       Grid.Column="2" Grid.Row="0"/>
+            <Grid Grid.Column="1" Margin="0,0,48,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0*"/>
+                    <ColumnDefinition Width="32*"/>
+                    <ColumnDefinition Width="205*"/>
+                    <ColumnDefinition Width="211*"/>
+                </Grid.ColumnDefinitions>
 
-            <TextBox x:Name="TxtNombre"
-                     Grid.Column="3" Grid.Row="0"/>
+                <Grid.RowDefinitions>
 
+                    <RowDefinition Height="69*"/>
+                    <RowDefinition Height="68*"/>
+                    <RowDefinition Height="64*"/>
+                    <RowDefinition Height="62*"/>
+                    <RowDefinition Height="64*"/>
+                    <RowDefinition Height="54*"/>
+                    <RowDefinition Height="60*"/>
+                    <RowDefinition Height="58*"/>
+                </Grid.RowDefinitions>
 
-            <TextBlock Text="Edad:"
-                       Grid.Column="2" Grid.Row="1"/>
+                <ToggleButton x:Name="btnActualizar" Content="Actualizar" Background="Transparent"
+                       Grid.Column="2" Grid.Row="0" Margin="0,2,0,0"/>
 
-            <TextBox x:Name="TxtEdad"
+                <TextBlock Text="Nombre:"
+                       Grid.Column="2" Grid.Row="1" Margin="0,2,0,0"/>
+
+                <TextBox x:Name="TxtNombre"
                      Grid.Column="3" Grid.Row="1"/>
 
 
-            <TextBlock Text="Raza:"
+                <TextBlock Text="Edad:"
                        Grid.Column="2" Grid.Row="2"/>
 
-            <TextBox x:Name="TxtRaza"
+                <TextBox x:Name="TxtEdad"
                      Grid.Column="3" Grid.Row="2"/>
 
 
-            <TextBlock Text="Fecha de ingreso al refugio:"
+                <TextBlock Text="Raza:"
                        Grid.Column="2" Grid.Row="3"/>
 
-            <DatePicker x:Name="TxtFechaIngreso"
+                <TextBox x:Name="TxtRaza"
                      Grid.Column="3" Grid.Row="3"/>
 
 
-            <TextBlock Text="Tamaño del perro:"
+                <TextBlock Text="Fecha de ingreso al refugio:"
                        Grid.Column="2" Grid.Row="4"/>
 
-            <ComboBox x:Name="TxtTamano"
-                     Grid.Column="3" Grid.Row="4">
-                <ComboBoxItem Content="Chico"/>
-                <ComboBoxItem Content="Mediano"/>
-                <ComboBoxItem Content="Grande"/>
-            </ComboBox>
+                <DatePicker x:Name="TxtFechaIngreso"
+                     Grid.Column="3" Grid.Row="4"/>
 
 
-            <TextBlock Text="¿Está esterilizado? :"
+                <TextBlock Text="Tamaño del perro:"
                        Grid.Column="2" Grid.Row="5"/>
 
-            <StackPanel Orientation="Horizontal" Grid.Column="3" Grid.Row="5">
-                <RadioButton x:Name="RbSi" Content="Si"></RadioButton>
-                <Separator Width="20" Background="Transparent" ></Separator>
-                <RadioButton x:Name="RbNo" Content="No" IsChecked="true"></RadioButton>
-            </StackPanel>
+                <ComboBox x:Name="TxtTamano"
+                     Grid.Column="3" Grid.Row="5">
+                    <ComboBoxItem Content="Chico"/>
+                    <ComboBoxItem Content="Mediano"/>
+                    <ComboBoxItem Content="Grande"/>
+                </ComboBox>
+
+
+                <TextBlock Text="¿Está esterilizado? :"
+                       Grid.Column="2" Grid.Row="6"/>
+
+                <StackPanel Orientation="Horizontal" Grid.Column="3" Grid.Row="6">
+                    <RadioButton x:Name="RbSi" Content="Si"></RadioButton>
+                    <Separator Width="20" Background="Transparent" ></Separator>
+                    <RadioButton x:Name="RbNo" Content="No" IsChecked="true"></RadioButton>
+                </StackPanel>
+
+                <Button x:Name="BtnIngresar" HorizontalAlignment="Left" 
+                Background="Transparent" Grid.Column="2" Grid.Row="7" Width="167">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Source="Imagenes_Iconos/green_checkmark.png" Height="36" Width="27"></Image>
+                        <TextBlock Text="Ingresar datos" VerticalAlignment="Center" ></TextBlock>
+                    </StackPanel>
+                </Button>
+
+                <Button x:Name="BtnCancelar" HorizontalAlignment="Left" 
+                Background="Transparent" Grid.Column="3" Grid.Row="7" Width="167">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Source="Imagenes_Iconos/red_cross.png" Height="36" Width="27"></Image>
+                        <TextBlock Text="Cancelar" VerticalAlignment="Center" ></TextBlock>
+                    </StackPanel>
+                </Button>
+            </Grid>
 
 
         </Grid>
 
-        <Button x:Name="BtnIngresar" HorizontalAlignment="Left" Margin="653,346,0,37" Width="114" Height="35"
-                Background="Transparent" >
+
+        <Button x:Name="BtnRegresar" HorizontalAlignment="Left" 
+                Background="Transparent" Margin="0,10,0,621">
             <StackPanel Orientation="Horizontal" >
-                <Image Source="Imagenes_Iconos/green_checkmark.png"></Image>
-                <TextBlock Text="Ingresar datos" VerticalAlignment="Center" ></TextBlock>
+                <Image Source="Imagenes_Iconos/exitDoor.png" Height="36" Width="27"></Image>
+                <TextBlock Text="Volver al menú" VerticalAlignment="Center" ></TextBlock>
             </StackPanel>
         </Button>
-        
-        <Button x:Name="BtnRegresar" Content="Regresar" HorizontalAlignment="Left" Margin="31,10,0,0" VerticalAlignment="Top" Width="75"/>
 
-        <DataGrid x:Name="VerPerros" Background="Transparent" Margin="10,47,398,23">
-
-        </DataGrid>
-        
     </Grid>
 </Window>

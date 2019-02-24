@@ -35,11 +35,13 @@
 **********************************/
 
 using System;
+using System.Data;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Navigation;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
@@ -56,48 +58,84 @@ namespace InterfazDeUsuario
         ClassPerro Perro = new ClassPerro();
 
         public WindowRegistroPerro()
-        {
+        {            
             //Inicialización de los componentes de la UI
             InitializeComponent();
 
             // visualizar perros
             VerPerros.ItemsSource = Perro.SelectPerros().Tables[0].DefaultView;
 
+            VerPerros.IsReadOnly = true;
+            VerPerros.IsEnabled = false;
+
             // variable para guarfar el valor de si fue esterilizado o no el perro.
             string Esterilizado;
 
             // se verifica cual radiobutton esta seleccionado para indicar si el perro esta esterilizado o no
-            if (RbSi.IsChecked == true)
-            {
-                Esterilizado = "Si";
-            }
-            else
-            {
-                Esterilizado = "No";
-            }
 
-            if (RbNo.IsChecked == true)
+            btnActualizar.Checked += (s, e) =>
             {
-                Esterilizado = "No";
-            }
-            else
-            {
-                Esterilizado = "Si";
-            }
+                VerPerros.IsEnabled = true;
+            };
 
+            btnActualizar.Unchecked += (s, e) =>
+            {
+                VerPerros.IsEnabled = false;
+            };
+
+            VerPerros.SelectionChanged += (s, e) =>
+            {
+                try
+                {
+                    DataRowView row = (DataRowView)VerPerros.SelectedItems[0];
+                
+                    TxtNombre.Text = row["Nombre"].ToString();
+                    TxtEdad.Text = row["Edad"].ToString();
+                    TxtRaza.Text = row["Raza"].ToString();
+                    TxtTamano.Text = row["Tamaño"].ToString();
+                    TxtFechaIngreso.Text = row["FechaIngreso"].ToString();
+
+                    if (row["Esterilizado"].ToString() == "Si")
+                        RbSi.IsChecked = true;
+                    else
+                        RbNo.IsChecked = true;
+
+                }
+                catch { }
+
+            };
 
             //Botón para regresar al menú anterior.
             BtnRegresar.Click += (s, e) =>
             {
+                
                 MainWindow Ventana = new MainWindow();
                 this.Close();
                 Ventana.Show();
-            };
+            };            
 
             // boton para insertar los datos en la BD
             BtnIngresar.Click += (s, e) =>
             {
                 string Adoptado = "No";
+
+                if (RbSi.IsChecked == true)
+                {
+                    Esterilizado = "Si";
+                }
+                else
+                {
+                    Esterilizado = "No";
+                }
+
+                if (RbNo.IsChecked == true)
+                {
+                    Esterilizado = "No";
+                }
+                else
+                {
+                    Esterilizado = "Si";
+                }
 
                 Perro.RegistroPerro(TxtNombre.Text, DateTime.Parse(TxtFechaIngreso.Text), int.Parse(TxtEdad.Text), TxtRaza.Text, TxtTamano.Text, Esterilizado, Adoptado);
                 MessageBox.Show("Perro guardado con exito");

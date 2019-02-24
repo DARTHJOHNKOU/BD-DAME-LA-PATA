@@ -132,5 +132,11 @@
   <ItemGroup>
     <Resource Include="Imagenes_Iconos\green_checkmark.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes_Iconos\exitDoor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes_Iconos\red_cross.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
