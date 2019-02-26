@@ -55,12 +55,44 @@ namespace InterfazDeUsuario
 
         /*La siguiente sección del programa se establece una conexión a la base de datos
         y ejecuta el Stored Procedure para ingresar datos del perro.*/
-        public bool RegistroPerro(string Nombre, DateTime FechaIngreso, int Edad, string Raza, string Tamaño, string Esterilizado, string Adoptado)
+        public bool RegistroPerro(string Nombre, string Genero, DateTime FechaIngreso, int Edad, string Raza, string Tamaño, string Esterilizado, string Adoptado)
         {
             SqlCommand comando = new SqlCommand("", Link.LinkConexion);
             comando.CommandText = "SP_InsertPerro";
             comando.CommandType = CommandType.StoredProcedure;
             comando.Parameters.AddWithValue("@Nombre", Nombre);
+            comando.Parameters.AddWithValue("@Genero", Genero);
+            comando.Parameters.AddWithValue("@FechaIngreso", FechaIngreso);
+            comando.Parameters.AddWithValue("@Edad", Edad);
+            comando.Parameters.AddWithValue("@Raza", Raza);
+            comando.Parameters.AddWithValue("@Tamaño", Tamaño);
+            comando.Parameters.AddWithValue("@Esterilizado", Esterilizado);
+            comando.Parameters.AddWithValue("@Adoptado", Adoptado);
+
+            //¿La conexión a la base de datos fue posible?
+            try
+            {
+                Link.LinkConexion.Open();
+                comando.ExecuteNonQuery();
+                Link.LinkConexion.Close();
+                return true;
+            }
+            catch
+            {
+                Link.LinkConexion.Close();
+                return false;
+            }
+        }
+
+        public bool UpdatePerro(int Id, string Nombre, string Genero, DateTime FechaIngreso, int Edad, string Raza, string Tamaño, string Esterilizado, string Adoptado)
+        {
+            SqlCommand comando = new SqlCommand("", Link.LinkConexion);
+            comando.CommandText = "SP_UpdatePerro";
+            comando.CommandType = CommandType.StoredProcedure;
+
+            comando.Parameters.AddWithValue("@IdPerro", Id);
+            comando.Parameters.AddWithValue("@Nombre", Nombre);
+            comando.Parameters.AddWithValue("@Genero", Genero);
             comando.Parameters.AddWithValue("@FechaIngreso", FechaIngreso);
             comando.Parameters.AddWithValue("@Edad", Edad);
             comando.Parameters.AddWithValue("@Raza", Raza);

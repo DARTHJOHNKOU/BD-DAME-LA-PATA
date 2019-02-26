@@ -56,38 +56,48 @@ namespace InterfazDeUsuario
     public partial class WindowRegistroPerro : Window
     {
         ClassPerro Perro = new ClassPerro();
+        DataRowView row;
+        bool esActualizar = false;        
 
         public WindowRegistroPerro()
         {            
             //Inicialización de los componentes de la UI
             InitializeComponent();
 
-            // visualizar perros
-            VerPerros.ItemsSource = Perro.SelectPerros().Tables[0].DefaultView;
+            // Se visualizan los perros.
+            // Puede haber un problema de conexión a la base de datos durante la ejecución del programa.
+            try
+            {
+                VerPerros.ItemsSource = Perro.SelectPerros().Tables[0].DefaultView;
+            }
+            catch
+            {
+                MessageBox.Show("Hubo un error al conectarse a la base de datos.");
+                //MainWindow Ventana = new MainWindow();
+                //this.Close();
+                //Ventana.Show();
+            }            
 
             VerPerros.IsReadOnly = true;
             VerPerros.IsEnabled = false;
-
-            // variable para guarfar el valor de si fue esterilizado o no el perro.
-            string Esterilizado;
-
-            // se verifica cual radiobutton esta seleccionado para indicar si el perro esta esterilizado o no
-
+            
             btnActualizar.Checked += (s, e) =>
             {
                 VerPerros.IsEnabled = true;
+                esActualizar = true;
             };
 
             btnActualizar.Unchecked += (s, e) =>
             {
                 VerPerros.IsEnabled = false;
+                esActualizar = false;
             };
 
             VerPerros.SelectionChanged += (s, e) =>
             {
                 try
                 {
-                    DataRowView row = (DataRowView)VerPerros.SelectedItems[0];
+                    row = (DataRowView)VerPerros.SelectedItems[0];
                 
                     TxtNombre.Text = row["Nombre"].ToString();
                     TxtEdad.Text = row["Edad"].ToString();
@@ -112,12 +122,35 @@ namespace InterfazDeUsuario
                 MainWindow Ventana = new MainWindow();
                 this.Close();
                 Ventana.Show();
-            };            
+            };
+
+            // Botón para borrar los datos ingresados
+            BtnCancelar.Click += (s, e) =>
+            {
+                TxtNombre.Text = "";
+                TxtEdad.Text = "";
+                TxtFechaIngreso.Text = "";
+                RbNo.IsChecked = true;
+                TxtRaza.Text = "";
+                TxtTamano.Text = "";
+                btnActualizar.IsChecked = false;
+                esActualizar = false;
+            };
 
             // boton para insertar los datos en la BD
             BtnIngresar.Click += (s, e) =>
             {
+                // variable para guarfar el valor de si fue esterilizado o no el perro.
+                string Esterilizado;
+
+                string Genero ="";
                 string Adoptado = "No";
+
+                if (RbMacho.IsChecked == true)
+                    Genero = "Macho";
+                else
+                    Genero = "Hembra";
+
 
                 if (RbSi.IsChecked == true)
                 {
@@ -137,8 +170,20 @@ namespace InterfazDeUsuario
                     Esterilizado = "Si";
                 }
 
-                Perro.RegistroPerro(TxtNombre.Text, DateTime.Parse(TxtFechaIngreso.Text), int.Parse(TxtEdad.Text), TxtRaza.Text, TxtTamano.Text, Esterilizado, Adoptado);
-                MessageBox.Show("Perro guardado con exito");
+                if (!esActualizar)
+                {
+                    Perro.RegistroPerro(TxtNombre.Text, Genero, DateTime.Parse(TxtFechaIngreso.Text), int.Parse(TxtEdad.Text), TxtRaza.Text, TxtTamano.Text, Esterilizado, Adoptado);
+                    MessageBox.Show("Perro guardado con exito");                    
+                }
+                else
+                {
+                    int Id = int.Parse(row["IdPerro"].ToString());
+
+                    Perro.UpdatePerro(Id, TxtNombre.Text, Genero, DateTime.Parse(TxtFechaIngreso.Text), int.Parse(TxtEdad.Text), TxtRaza.Text, TxtTamano.Text, Esterilizado, Adoptado);
+                    MessageBox.Show("Datos actualizados con exito");
+                    //VerPerros.ItemsSource = Perro.SelectPerros().Tables[0].DefaultView;
+                }
+
                 VerPerros.ItemsSource = Perro.SelectPerros().Tables[0].DefaultView;
             };
         }

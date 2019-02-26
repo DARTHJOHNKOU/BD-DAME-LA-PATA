@@ -19,6 +19,14 @@ CREATE TABLE Perro
 )
 GO
 
+***** agragar columna sexo*****************
+
+ALTER TABLE PERRO
+ADD Genero varchar(6) NULL
+GO
+
+
+
 CREATE TABLE Adoptante
 (
 	IdAdoptante INT IDENTITY(1,1) PRIMARY KEY,
@@ -73,6 +81,7 @@ GO
 -- Metodo para insertar un perro--
 CREATE PROCEDURE SP_InsertPerro
 	@Nombre VARCHAR(30),
+	@Genero VARCHAR(6),
 	@FechaIngreso DATE,
 	@Edad INT,
 	@Raza VARCHAR(30),
@@ -82,8 +91,8 @@ CREATE PROCEDURE SP_InsertPerro
 	
 AS
 	BEGIN
-		INSERT INTO Perro(Nombre, FechaIngreso, Edad, Raza, Tamaño, Esterilizado, Adoptado) 
-		VALUES(@Nombre, @FechaIngreso, @Edad, @Raza, @Tamaño, @Esterilizado, @Adoptado)		
+		INSERT INTO Perro(Nombre, Genero, FechaIngreso, Edad, Raza, Tamaño, Esterilizado, Adoptado) 
+		VALUES(@Nombre, @Genero, @FechaIngreso, @Edad, @Raza, @Tamaño, @Esterilizado, @Adoptado)		
 	END
 GO
 
@@ -91,6 +100,7 @@ GO
 CREATE PROCEDURE SP_UpdatePerro
     @IdPerro INT,
 	@Nombre VARCHAR(30),
+	@Genero VARCHAR(6),
 	@FechaIngreso DATE,
 	@Edad INT,
 	@Raza VARCHAR(30),
@@ -100,8 +110,9 @@ CREATE PROCEDURE SP_UpdatePerro
 	
 AS
 	BEGIN
-		INSERT INTO Perro(IdPerro, Nombre, FechaIngreso, Edad, Tamaño, Esterilizado, Adoptado) 
-		VALUES(@IdPerro, @Nombre, @FechaIngreso, @Edad, @Tamaño, @Esterilizado, @Adoptado)
+	Update Perro
+		set Nombre=@Nombre, Genero=@Genero, FechaIngreso=@FechaIngreso, Edad=@Edad, Raza=@Raza, Tamaño=@Tamaño, Esterilizado=@Esterilizado, Adoptado=@Adoptado
+  WHERE IdPerro=@IdPerro
 	END
 GO
 
@@ -155,8 +166,9 @@ CREATE PROCEDURE SP_UpdateVacuna
 	
 AS
 	BEGIN
-		INSERT INTO Vacuna(IdVacuna, IdPerro, Fecha, TipoVacuna) 
-		VALUES(@IdVacuna, @IdPerro, @Fecha, @TipoVacuna)
+		update Vacuna
+		set IdPerro=@IdPerro, Fecha=@Fecha, TipoVacuna=@TipoVacuna
+		where IdVacuna=@IdVacuna
 	END
 GO
 
@@ -204,8 +216,9 @@ CREATE PROCEDURE SP_UpdateAdopcion
 	
 AS
 	BEGIN
-		INSERT INTO Adopcion(IdAdopcion, IdPerro, IdAdoptante, FechaAdopcion, Lugar)
-		VALUES(@IdAdopcion, @IdPerro, @IdAdoptante, @FechaAdopcion, @Lugar)
+		update Adopcion
+		set IdPerro=@IdPerro, IdAdoptante=@IdAdoptante, FechaAdopcion=@FechaAdopcion, Lugar=@Lugar
+		WHERE IdAdopcion=@IdAdopcion
 	END
 GO
 
@@ -251,8 +264,9 @@ CREATE PROCEDURE SP_UpdateAdoptante
 	@Telefono VARCHAR(10)
 AS
 	BEGIN
-		INSERT INTO Adoptante(IdAdoptante, Nombre, Edad, Domicilio, Telefono) 
-		VALUES(@IdAdoptante, @Nombre, @Edad, @Domicilio, @Telefono)
+		Update Adoptante
+		set Nombre=@Nombre, Edad=@Edad, Domicilio=@Domicilio, Telefono=@Telefono 
+		WHERE IdAdoptante=@IdAdoptante
 	END
 GO
 
@@ -304,8 +318,9 @@ CREATE PROCEDURE SP_UpdateVisita
 	@Observaciones VARCHAR(500)
 AS
 	BEGIN
-		INSERT INTO Visita(IdVisita, IdAdoptante, Lugar, FechaVisita, FechaProximaVisita, NombreVisitante, Observaciones) 
-		VALUES(@IdVisita, @IdAdoptante, @Lugar, @FechaVisita, @FechaProximaVisita, @NombreVisitante, @Observaciones)
+		update Visita
+		set IdAdoptante=@IdAdoptante, Lugar=@Lugar, FechaVisita=@FechaVisita, FechaProximaVisita=@FechaProximaVisita, NombreVisitante=@NombreVisitante, Observaciones=@Observaciones 
+		WHERE IdVisita=@IdVisita
 	END
 GO
 
@@ -329,5 +344,4 @@ AS
 	END
 GO 
 
-INSERT INTO Adoptante(Nombre, Edad, Domicilio, Telefono) 
-VALUES('Daniela Rodriguez', 25, 'Moroleon', '4452743245')
+--DROP PROCEDURE SP_SelectVisitas

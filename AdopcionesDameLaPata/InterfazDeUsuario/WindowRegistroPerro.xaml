@@ -34,6 +34,7 @@
                     <RowDefinition Height="62*"/>
                     <RowDefinition Height="64*"/>
                     <RowDefinition Height="54*"/>
+                    <RowDefinition Height="54*"/>
                     <RowDefinition Height="60*"/>
                     <RowDefinition Height="58*"/>
                 </Grid.RowDefinitions>
@@ -61,12 +62,20 @@
                 <TextBox x:Name="TxtRaza"
                      Grid.Column="3" Grid.Row="3"/>
 
-
-                <TextBlock Text="Fecha de ingreso al refugio:"
+                <TextBlock Text="Sexo:"
                        Grid.Column="2" Grid.Row="4"/>
 
+                <StackPanel Orientation="Horizontal" Grid.Column="3" Grid.Row="4">
+                    <RadioButton x:Name="RbMacho" Content="Macho"></RadioButton>
+                    <Separator Width="20" Background="Transparent" ></Separator>
+                    <RadioButton x:Name="RbHembra" Content="Hembra" IsChecked="true"></RadioButton>
+                </StackPanel>
+
+                <TextBlock Text="Fecha de ingreso al refugio:"
+                       Grid.Column="2" Grid.Row="7"/>
+
                 <DatePicker x:Name="TxtFechaIngreso"
-                     Grid.Column="3" Grid.Row="4"/>
+                     Grid.Column="3" Grid.Row="7"/>
 
 
                 <TextBlock Text="Tamaño del perro:"
@@ -90,7 +99,7 @@
                 </StackPanel>
 
                 <Button x:Name="BtnIngresar" HorizontalAlignment="Left" 
-                Background="Transparent" Grid.Column="2" Grid.Row="7" Width="167">
+                Background="Transparent" Grid.Column="2" Grid.Row="8" Width="167">
                     <StackPanel Orientation="Horizontal" >
                         <Image Source="Imagenes_Iconos/green_checkmark.png" Height="36" Width="27"></Image>
                         <TextBlock Text="Ingresar datos" VerticalAlignment="Center" ></TextBlock>
@@ -98,7 +107,7 @@
                 </Button>
 
                 <Button x:Name="BtnCancelar" HorizontalAlignment="Left" 
-                Background="Transparent" Grid.Column="3" Grid.Row="7" Width="167">
+                Background="Transparent" Grid.Column="3" Grid.Row="8" Width="167">
                     <StackPanel Orientation="Horizontal" >
                         <Image Source="Imagenes_Iconos/red_cross.png" Height="36" Width="27"></Image>
                         <TextBlock Text="Cancelar" VerticalAlignment="Center" ></TextBlock>
