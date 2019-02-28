@@ -55,8 +55,14 @@ namespace InterfazDeUsuario
     
     public partial class WindowRegistroPerro : Window
     {
+        // Clase para usar las funciones de registrar y actualizar información.
         ClassPerro Perro = new ClassPerro();
+
+        // Clase para obtener los valores de la fila seleccionada en el DataGrid
         DataRowView row;
+
+        // Variable para saber si el ingreso de datos es para actualizar datos o es el registro
+        // de un perro nuevo           
         bool esActualizar = false;        
 
         public WindowRegistroPerro()
@@ -78,9 +84,11 @@ namespace InterfazDeUsuario
                 //Ventana.Show();
             }            
 
+            // Se inicializa como deshabilitado y sólo lectura el DataGrid
             VerPerros.IsReadOnly = true;
             VerPerros.IsEnabled = false;
             
+            // Botón para indicar si los datos serán actualizados o no.
             btnActualizar.Checked += (s, e) =>
             {
                 VerPerros.IsEnabled = true;
@@ -93,12 +101,18 @@ namespace InterfazDeUsuario
                 esActualizar = false;
             };
 
+            // Evento que captura el momento en que se selecciona una fila
+            // del GridView.
             VerPerros.SelectionChanged += (s, e) =>
             {
+                // Es posible que haya una deselección y esto puede provocar un error 
+                // en tiempo de ejecución.
                 try
                 {
+                    // Se guardan en un arreglo los datos de la fila seleccionada. 
                     row = (DataRowView)VerPerros.SelectedItems[0];
                 
+                    // Se llenan los campos con sus datos correspondientes del perro seleccionado.
                     TxtNombre.Text = row["Nombre"].ToString();
                     TxtEdad.Text = row["Edad"].ToString();
                     TxtRaza.Text = row["Raza"].ToString();
@@ -140,11 +154,31 @@ namespace InterfazDeUsuario
             // boton para insertar los datos en la BD
             BtnIngresar.Click += (s, e) =>
             {
-                // variable para guarfar el valor de si fue esterilizado o no el perro.
+                // variable para guardar el valor de si fue esterilizado o no el perro.
                 string Esterilizado;
 
-                string Genero ="";
+                // Variable para guardar el género del perro.
+                string Genero = "";
+
+                // Variable para asignar que el perro no está adoptado. 
+                // Se puede eliminar esta variable y pasar directamente el valor a la función.
                 string Adoptado = "No";
+
+                // Validaciones.
+                    // Campos vacíos
+                if (TxtNombre.Text == "" || TxtRaza.Text == "" || TxtTamano.Text == ""
+                    || TxtFechaIngreso.Text == "")
+                {
+                    MessageBox.Show("Debe llenar todos los campos.");
+                    goto CancelarOperacion;
+                }
+
+                    // Sólo números en la Edad
+                if(int.TryParse(TxtEdad.Text, out int res) == false )
+                {
+                    MessageBox.Show("Debe ingresar un número en la edad.");
+                    goto CancelarOperacion;
+                }
 
                 if (RbMacho.IsChecked == true)
                     Genero = "Macho";
@@ -159,24 +193,23 @@ namespace InterfazDeUsuario
                 else
                 {
                     Esterilizado = "No";
-                }
-
-                if (RbNo.IsChecked == true)
-                {
-                    Esterilizado = "No";
-                }
-                else
-                {
-                    Esterilizado = "Si";
-                }
+                }                
 
                 if (!esActualizar)
                 {
-                    Perro.RegistroPerro(TxtNombre.Text, Genero, DateTime.Parse(TxtFechaIngreso.Text), int.Parse(TxtEdad.Text), TxtRaza.Text, TxtTamano.Text, Esterilizado, Adoptado);
-                    MessageBox.Show("Perro guardado con exito");                    
+                    if (Perro.EsPerroRepetido(TxtNombre.Text).Tables[0].Rows.Count <= 0)
+                    {
+                        Perro.RegistroPerro(TxtNombre.Text, Genero, DateTime.Parse(TxtFechaIngreso.Text), int.Parse(TxtEdad.Text), TxtRaza.Text, TxtTamano.Text, Esterilizado, Adoptado);
+                        MessageBox.Show("Perro guardado con exito");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ya existe un perrito con ese nombre.");
+                    }
                 }
                 else
                 {
+                    // Se obtiene el ID del perro seleccionado en el DataGrid
                     int Id = int.Parse(row["IdPerro"].ToString());
 
                     Perro.UpdatePerro(Id, TxtNombre.Text, Genero, DateTime.Parse(TxtFechaIngreso.Text), int.Parse(TxtEdad.Text), TxtRaza.Text, TxtTamano.Text, Esterilizado, Adoptado);
@@ -185,6 +218,11 @@ namespace InterfazDeUsuario
                 }
 
                 VerPerros.ItemsSource = Perro.SelectPerros().Tables[0].DefaultView;
+
+                // En caso de que no se llenen correctamente los campos, 
+                // se salta la operación de actualizar ó registrar
+            CancelarOperacion:;
+                
             };
         }
     }

@@ -141,5 +141,29 @@ namespace InterfazDeUsuario
                 return Conjunto;
             }
         }
+
+        public DataSet EsPerroRepetido( string Nombre )
+        {
+            DataSet Conjunto = new DataSet();
+            SqlCommand Buscar = new SqlCommand("EXEC SP_EsPerroRepetido'" + Nombre + "'", Link.LinkConexion);
+            // Dim Buscar As New SqlClient.SqlCommand("EXEC SP_SelectAdoptantes", Cadena.Cadena)
+            //  Dim u As New SqlClient.SqlDataAdapter();
+            SqlDataAdapter Adaptador = new SqlDataAdapter();
+
+            Adaptador.SelectCommand = Buscar;
+
+            try
+            {
+                Link.LinkConexion.Open();
+                Adaptador.Fill(Conjunto);
+                Link.LinkConexion.Close();
+                return Conjunto;
+            }
+            catch
+            {
+                Link.LinkConexion.Close();
+                return Conjunto;
+            }
+        }
     }
 }

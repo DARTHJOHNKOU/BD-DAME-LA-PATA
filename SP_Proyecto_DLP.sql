@@ -141,7 +141,20 @@ AS
 	END
 GO 
 
+
+CREATE PROCEDURE SP_EsPerroRepetido
+	@Nombre VARCHAR(30)
+AS
+	BEGIN
+		SELECT * FROM Perro
+		WHERE Nombre = @Nombre
+	END
+GO
   
+
+
+
+
   --METODOS PARA LA TABLA VACUNAS ---
 
 -- Metodo para insertar una vacuna--

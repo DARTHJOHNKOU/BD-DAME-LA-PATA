@@ -67,7 +67,6 @@ namespace InterfazDeUsuario
             comando.Parameters.AddWithValue("@Domicilio", Domicilio);
             comando.Parameters.AddWithValue("@Telefono", Telefono);
 
-
             //¿La conexión a la base de datos fue posible?
             try
             {
