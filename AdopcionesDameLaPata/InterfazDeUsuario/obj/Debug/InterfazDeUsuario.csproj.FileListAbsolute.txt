@@ -63,3 +63,26 @@ G:\respaldo\vicky\semestre 8\desarrollo de software\GITHUB\BD-DAME-LA-PATA\Adopc
 G:\respaldo\vicky\semestre 8\desarrollo de software\GITHUB\BD-DAME-LA-PATA\AdopcionesDameLaPata\InterfazDeUsuario\obj\Debug\InterfazDeUsuario.csproj.CoreCompileInputs.cache
 G:\respaldo\vicky\semestre 8\desarrollo de software\GITHUB\BD-DAME-LA-PATA\AdopcionesDameLaPata\InterfazDeUsuario\obj\Debug\InterfazDeUsuario.exe
 G:\respaldo\vicky\semestre 8\desarrollo de software\GITHUB\BD-DAME-LA-PATA\AdopcionesDameLaPata\InterfazDeUsuario\obj\Debug\InterfazDeUsuario.pdb
+F:\Documentos\__Proyecto_DameLaPata\Program\BD-DAME-LA-PATA\AdopcionesDameLaPata\InterfazDeUsuario\bin\Debug\InterfazDeUsuario.exe.config
+F:\Documentos\__Proyecto_DameLaPata\Program\BD-DAME-LA-PATA\AdopcionesDameLaPata\InterfazDeUsuario\bin\Debug\InterfazDeUsuario.exe
+F:\Documentos\__Proyecto_DameLaPata\Program\BD-DAME-LA-PATA\AdopcionesDameLaPata\InterfazDeUsuario\bin\Debug\InterfazDeUsuario.pdb
+F:\Documentos\__Proyecto_DameLaPata\Program\BD-DAME-LA-PATA\AdopcionesDameLaPata\InterfazDeUsuario\obj\Debug\InterfazDeUsuario.csprojAssemblyReference.cache
+F:\Documentos\__Proyecto_DameLaPata\Program\BD-DAME-LA-PATA\AdopcionesDameLaPata\InterfazDeUsuario\obj\Debug\MainWindow.g.cs
+F:\Documentos\__Proyecto_DameLaPata\Program\BD-DAME-LA-PATA\AdopcionesDameLaPata\InterfazDeUsuario\obj\Debug\WindowRegistroAdopcion.g.cs
+F:\Documentos\__Proyecto_DameLaPata\Program\BD-DAME-LA-PATA\AdopcionesDameLaPata\InterfazDeUsuario\obj\Debug\WindowRegistroAdoptante.g.cs
+F:\Documentos\__Proyecto_DameLaPata\Program\BD-DAME-LA-PATA\AdopcionesDameLaPata\InterfazDeUsuario\obj\Debug\WindowRegistroPerro.g.cs
+F:\Documentos\__Proyecto_DameLaPata\Program\BD-DAME-LA-PATA\AdopcionesDameLaPata\InterfazDeUsuario\obj\Debug\WindowRegistroVisita.g.cs
+F:\Documentos\__Proyecto_DameLaPata\Program\BD-DAME-LA-PATA\AdopcionesDameLaPata\InterfazDeUsuario\obj\Debug\App.g.cs
+F:\Documentos\__Proyecto_DameLaPata\Program\BD-DAME-LA-PATA\AdopcionesDameLaPata\InterfazDeUsuario\obj\Debug\InterfazDeUsuario_MarkupCompile.cache
+F:\Documentos\__Proyecto_DameLaPata\Program\BD-DAME-LA-PATA\AdopcionesDameLaPata\InterfazDeUsuario\obj\Debug\InterfazDeUsuario_MarkupCompile.lref
+F:\Documentos\__Proyecto_DameLaPata\Program\BD-DAME-LA-PATA\AdopcionesDameLaPata\InterfazDeUsuario\obj\Debug\MainWindow.baml
+F:\Documentos\__Proyecto_DameLaPata\Program\BD-DAME-LA-PATA\AdopcionesDameLaPata\InterfazDeUsuario\obj\Debug\WindowRegistroAdopcion.baml
+F:\Documentos\__Proyecto_DameLaPata\Program\BD-DAME-LA-PATA\AdopcionesDameLaPata\InterfazDeUsuario\obj\Debug\WindowRegistroAdoptante.baml
+F:\Documentos\__Proyecto_DameLaPata\Program\BD-DAME-LA-PATA\AdopcionesDameLaPata\InterfazDeUsuario\obj\Debug\WindowRegistroPerro.baml
+F:\Documentos\__Proyecto_DameLaPata\Program\BD-DAME-LA-PATA\AdopcionesDameLaPata\InterfazDeUsuario\obj\Debug\WindowRegistroVisita.baml
+F:\Documentos\__Proyecto_DameLaPata\Program\BD-DAME-LA-PATA\AdopcionesDameLaPata\InterfazDeUsuario\obj\Debug\InterfazDeUsuario.g.resources
+F:\Documentos\__Proyecto_DameLaPata\Program\BD-DAME-LA-PATA\AdopcionesDameLaPata\InterfazDeUsuario\obj\Debug\InterfazDeUsuario.Properties.Resources.resources
+F:\Documentos\__Proyecto_DameLaPata\Program\BD-DAME-LA-PATA\AdopcionesDameLaPata\InterfazDeUsuario\obj\Debug\InterfazDeUsuario.csproj.GenerateResource.cache
+F:\Documentos\__Proyecto_DameLaPata\Program\BD-DAME-LA-PATA\AdopcionesDameLaPata\InterfazDeUsuario\obj\Debug\InterfazDeUsuario.csproj.CoreCompileInputs.cache
+F:\Documentos\__Proyecto_DameLaPata\Program\BD-DAME-LA-PATA\AdopcionesDameLaPata\InterfazDeUsuario\obj\Debug\InterfazDeUsuario.exe
+F:\Documentos\__Proyecto_DameLaPata\Program\BD-DAME-LA-PATA\AdopcionesDameLaPata\InterfazDeUsuario\obj\Debug\InterfazDeUsuario.pdb

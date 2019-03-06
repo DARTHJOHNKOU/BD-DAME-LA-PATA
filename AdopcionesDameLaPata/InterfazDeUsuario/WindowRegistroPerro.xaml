@@ -22,14 +22,16 @@
             </Grid.RowDefinitions>
 
             <Button x:Name="BtnRegresar" 
-                Background="Transparent" Grid.Row="0">
+                Background="Transparent" BorderBrush="LightGray" Grid.Row="0"
+                    ToolTip="De clic para regresar al menú principal.">
                 <StackPanel Orientation="Horizontal" >
                     <Image Source="Imagenes_Iconos/exitDoor.png" Height="36" Width="27"></Image>
                     <TextBlock Text="Volver al menú" VerticalAlignment="Center" ></TextBlock>
                 </StackPanel>
             </Button>
 
-            <DataGrid x:Name="VerPerros" Background="Transparent" Grid.Column="0" Grid.Row="1"/>
+            <DataGrid x:Name="VerPerros" Background="Transparent" Grid.Column="0" Grid.Row="1"
+                      ToolTip="Lista de los perritos registrados en la base de datos"/>
 
             <Grid Grid.Column="1" Margin="0,0,48,0" Grid.Row="1">
                 <Grid.ColumnDefinitions>
@@ -53,7 +55,9 @@
                 </Grid.RowDefinitions>
 
                 <ToggleButton x:Name="btnActualizar" Content="Actualizar datos de un perrito" Background="Transparent"
-                       Grid.Column="2" Grid.Row="0" Margin="0,2,0,0"/>
+                       Grid.Column="2" Grid.Row="0" Margin="0,2,0,0" 
+                              BorderBrush="LightGray"  
+                              ToolTip="Presione este botón si desea actualizar datos de un perrito."/>
 
                 <TextBlock Text="Nombre:"
                        Grid.Column="2" Grid.Row="1" Margin="0,2,0,0"/>
@@ -111,7 +115,8 @@
                      Grid.Column="3" Grid.Row="7"/>
 
                 <Button x:Name="BtnIngresar" HorizontalAlignment="Left" 
-                Background="Transparent" Grid.Column="2" Grid.Row="8" Width="167">
+                Background="Transparent" Grid.Column="2" Grid.Row="8" Width="167"
+                        ToolTip="Dé clic para guardar los datos del perrito.">
                     <StackPanel Orientation="Horizontal" >
                         <Image Source="Imagenes_Iconos/green_checkmark.png" Height="36" Width="27"></Image>
                         <TextBlock Text="Ingresar datos" VerticalAlignment="Center" ></TextBlock>
@@ -119,7 +124,8 @@
                 </Button>
 
                 <Button x:Name="BtnCancelar" HorizontalAlignment="Left" 
-                Background="Transparent" Grid.Column="3" Grid.Row="8" Width="167">
+                Background="Transparent" Grid.Column="3" Grid.Row="8" Width="167"
+                        ToolTip="Limpia los campos que se han escrito para volver a llenarlos.">
                     <StackPanel Orientation="Horizontal" >
                         <Image Source="Imagenes_Iconos/red_cross.png" Height="36" Width="27"></Image>
                         <TextBlock Text="Cancelar" VerticalAlignment="Center" ></TextBlock>
