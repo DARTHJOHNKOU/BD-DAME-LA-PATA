@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-F:\Documentos\universidad\Semestre 8\Desarrollo de Software\Git_Proyecto\BD-DAME-LA-PATA\AdopcionesDameLaPata\InterfazDeUsuario\obj\Debug\
+F:\Documentos\__Proyecto_DameLaPata\Program\BD-DAME-LA-PATA\AdopcionesDameLaPata\InterfazDeUsuario\obj\Debug\
 InterfazDeUsuario
 none
 false
 DEBUG;TRACE
-F:\Documentos\universidad\Semestre 8\Desarrollo de Software\Git_Proyecto\BD-DAME-LA-PATA\AdopcionesDameLaPata\InterfazDeUsuario\App.xaml
+F:\Documentos\__Proyecto_DameLaPata\Program\BD-DAME-LA-PATA\AdopcionesDameLaPata\InterfazDeUsuario\App.xaml
 5216667711
 
 18-1070045346
-13-1142990016
+141896444186
 MainWindow.xaml;WindowRegistroAdopcion.xaml;WindowRegistroAdoptante.xaml;WindowRegistroPerro.xaml;WindowRegistroVisita.xaml;
 
-False
+True
 

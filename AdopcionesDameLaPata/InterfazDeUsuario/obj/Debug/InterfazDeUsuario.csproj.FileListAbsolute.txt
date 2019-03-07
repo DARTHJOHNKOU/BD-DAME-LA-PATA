@@ -86,3 +86,5 @@ F:\Documentos\__Proyecto_DameLaPata\Program\BD-DAME-LA-PATA\AdopcionesDameLaPata
 F:\Documentos\__Proyecto_DameLaPata\Program\BD-DAME-LA-PATA\AdopcionesDameLaPata\InterfazDeUsuario\obj\Debug\InterfazDeUsuario.csproj.CoreCompileInputs.cache
 F:\Documentos\__Proyecto_DameLaPata\Program\BD-DAME-LA-PATA\AdopcionesDameLaPata\InterfazDeUsuario\obj\Debug\InterfazDeUsuario.exe
 F:\Documentos\__Proyecto_DameLaPata\Program\BD-DAME-LA-PATA\AdopcionesDameLaPata\InterfazDeUsuario\obj\Debug\InterfazDeUsuario.pdb
+F:\Documentos\__Proyecto_DameLaPata\Program\BD-DAME-LA-PATA\AdopcionesDameLaPata\InterfazDeUsuario\bin\Debug\itextsharp.dll
+F:\Documentos\__Proyecto_DameLaPata\Program\BD-DAME-LA-PATA\AdopcionesDameLaPata\InterfazDeUsuario\obj\Debug\InterfazDeUsuario.csproj.CopyComplete

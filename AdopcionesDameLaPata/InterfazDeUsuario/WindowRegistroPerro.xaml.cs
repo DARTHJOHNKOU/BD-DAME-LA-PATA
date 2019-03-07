@@ -49,6 +49,10 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using System.IO;
+
 
 namespace InterfazDeUsuario
 {
@@ -199,6 +203,14 @@ namespace InterfazDeUsuario
                 {
                     if (Perro.EsPerroRepetido(TxtNombre.Text).Tables[0].Rows.Count <= 0)
                     {
+                        Document document = new Document();
+                        PdfWriter.GetInstance(document, 
+                                    new FileStream("DocumentoPerroIngresado.pdf",FileMode.OpenOrCreate));
+                        document.Open();
+                        document.Add(new iTextSharp.text.Paragraph(TxtNombre.Text));
+                        document.Close();
+
+
                         Perro.RegistroPerro(TxtNombre.Text, Genero, DateTime.Parse(TxtFechaIngreso.Text), int.Parse(TxtEdad.Text), TxtRaza.Text, TxtTamano.Text, Esterilizado, Adoptado);
                         MessageBox.Show("Perro guardado con exito");
                     }
